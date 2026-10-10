@@ -159,10 +159,14 @@ h2 { font-size: clamp(34px, 5vw, 54px); margin-top: 14px; }
 /* Portfólio */
 .port { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
 .port .foto { border-color: var(--line-l); min-height: 260px; }
-.port .foto:nth-child(1) { grid-column: span 7; min-height: 420px; }
+.port .foto:nth-child(1) { grid-column: span 7; }
 .port .foto:nth-child(2) { grid-column: span 5; min-height: 420px; }
 .port .foto:nth-child(n+3) { grid-column: span 4; }
-.port .foto:nth-child(n+6) { grid-column: span 6; min-height: 320px; }
+.port .foto:nth-child(n+6) { grid-column: span 4; min-height: 320px; }
+.port .foto:nth-child(n+9) { grid-column: span 6; }
+.port .foto:nth-child(1) { min-height: 520px; background-position: center 20%; }
+.port .foto:nth-child(1) > span b { font-size: 28px; }
+.port .foto:nth-child(1) .sel { align-self: flex-start; font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; background: var(--accent); color: #07080a; border-radius: 4px; padding: 3px 8px; margin-bottom: 6px; }
 .port.filtrado .foto:nth-child(n) { grid-column: span 4; min-height: 320px; }
 .port .foto[hidden] { display: none; }
 .port .foto { background-position: center 30%; }
@@ -270,7 +274,7 @@ footer a:hover { color: var(--fg); }
         <a class="btn btn-s" href="#portfolio">Ver trabalhos</a>
       </div>
     </div>
-    <div class="foto" role="img" aria-label="Fachada de loja com letreiro luminoso e vitrine adesivada" style="background-image:url('imagens/hero-fachada.jpg')"><span><small>Fachada e vitrine</small>Imagem ilustrativa</span></div>
+    <div class="foto" role="img" aria-label="Fachada da Zazá Açaí e Sorvetes com letreiro luminoso, windbanner e cardápio de parede" style="background-image:url('imagens/CriacoesReais/Zaza_AcaieSorvete.jpeg');background-position:center 25%"><span><small>Projeto real · Zazá Açaí &amp; Sorvetes</small>Logomarca, fachada, windbanner e cardápio</span></div>
   </div>
 </section>
 
@@ -324,7 +328,7 @@ footer a:hover { color: var(--fg); }
       </div>
       <div class="acoes"><a class="btn btn-p" href="#orcamento">Pedir orçamento</a></div>
     </div>
-    <div class="foto" role="img" aria-label="Pizzaria com windbanner na entrada, cardápio de parede e display de balcão" style="background-image:url('imagens/alimentacao-pizzaria.jpg')"><span><small>Linha Alimentação</small>Imagem ilustrativa</span></div>
+    <div class="foto" role="img" aria-label="Açaiteria Zazá com windbanner na calçada, letreiro e cardápio de parede" style="background-image:url('imagens/CriacoesReais/Zaza_AcaieSorvete.jpeg');background-position:center 30%"><span><small>Linha Alimentação · Projeto real</small>Zazá Açaí &amp; Sorvetes: marca, fachada, windbanner e cardápio</span></div>
   </div>
 </section>
 
@@ -387,11 +391,12 @@ footer a:hover { color: var(--fg); }
         <h2>Projetos entregues</h2>
       </div>
       <div class="filtros" role="group" aria-label="Filtrar por serviço">
-        <button class="on" data-f="todos">Todos</button><button data-f="fachada">Fachadas</button><button data-f="sinalizacao">Sinalização</button><button data-f="marca">Logomarcas</button><button data-f="ambientacao">Ambientação</button><button data-f="eventos">Eventos</button>
+        <button class="on" data-f="todos">Todos</button><button data-f="alimentacao">Alimentação</button><button data-f="fachada">Fachadas</button><button data-f="sinalizacao">Sinalização</button><button data-f="marca">Logomarcas</button><button data-f="ambientacao">Ambientação</button><button data-f="eventos">Eventos</button>
       </div>
     </div>
     <div class="port" id="port">
       <!-- Para trocar um projeto: mude a imagem (imagens/CriacoesReais/...), o título e o data-cat. Categorias: fachada, sinalizacao, marca, ambientacao, eventos -->
+      <div class="foto" data-cat="alimentacao fachada marca" role="img" aria-label="Fachada da Zazá Açaí e Sorvetes com letreiro luminoso, windbanner e cardápio de parede" style="background-image:url('imagens/CriacoesReais/Zaza_AcaieSorvete.jpeg')"><span><small class="sel">Projeto em destaque</small><small>Alimentação · Logomarca · Fachada</small><b>Zazá Açaí &amp; Sorvetes</b>Logomarca, letreiro, windbanner e cardápio de parede</span></div>
       <div class="foto" data-cat="fachada marca" role="img" aria-label="Fachada da igreja com símbolo e letra-caixa em azul" style="background-image:url('imagens/CriacoesReais/LogoFachada_IgrejaBatista.jpeg')"><span><small>Logomarca · Fachada</small><b>1ª Igreja Batista Vista Alegre</b>Símbolo e letra-caixa na fachada</span></div>
       <div class="foto" data-cat="sinalizacao ambientacao" role="img" aria-label="Pátio industrial com totem de estacionamento e placas de setor" style="background-image:url('imagens/CriacoesReais/AmbientacaoeSinalizacao_DeutecNovus.jpeg')"><span><small>Sinalização · Ambientação</small><b>Deutec Novus</b>Totem, setores e demarcação de pátio</span></div>
       <div class="foto" data-cat="fachada marca" role="img" aria-label="Creche com logotipo em relevo na parede" style="background-image:url('imagens/CriacoesReais/Creche_Cantinho-da-Fernanda.jpeg')"><span><small>Logomarca · Fachada</small><b>Cantinho da Tia Fernanda</b>Logotipo em relevo e letreiro</span></div>
