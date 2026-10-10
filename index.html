@@ -80,13 +80,13 @@ h2 { font-size: clamp(34px, 5vw, 54px); margin-top: 14px; }
 .imob .item { background: #fff; border-color: var(--line-l); }
 .imob .item small { color: #55555a; }
 .imob .item > span { color: var(--accent-ink); }
-.imob .vis { background: #0a0a0b; border-radius: 16px; aspect-ratio: 1; display: grid; place-items: center; position: relative; overflow: hidden; }
+.imob .vis { background: linear-gradient(160deg, #f7f8f9, #e4e6ea); border: 1px solid var(--line-l); border-radius: 16px; aspect-ratio: 1; display: grid; place-items: center; position: relative; overflow: hidden; }
 .imob .placa { width: 78%; background: #fff; border: 5px solid #fff; border-radius: 6px; overflow: hidden; transform: rotate(-3deg); box-shadow: 0 24px 60px rgba(0,0,0,.6); }
 .imob .placa .t { background: #151517; color: #fff; font-weight: 700; padding: 14px 18px; font-size: clamp(14px, 2vw, 20px); }
 .imob .placa .t em { font-style: normal; color: var(--accent); }
 .imob .placa .v { background: var(--accent); color: #fff; font-weight: 800; text-align: center; letter-spacing: -.02em; font-size: clamp(48px, 9vw, 96px); line-height: 1.1; padding: 8px 0; }
 .imob .placa .f { background: #0a0a0b; color: #fff; font-weight: 700; padding: 14px 18px; font-size: clamp(16px, 2.6vw, 28px); }
-.imob .vis .kit { position: absolute; left: 6%; bottom: 6%; font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #cecece; }
+.imob .vis .kit { position: absolute; left: 6%; bottom: 6%; font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #55555a; }
 @media (max-width: 900px) { .imob .wrap { grid-template-columns: 1fr; } .imob .vis { order: -1; aspect-ratio: 16 / 10; } }
 
 /* Hero */
@@ -118,6 +118,15 @@ h2 { font-size: clamp(34px, 5vw, 54px); margin-top: 14px; }
 .lado.dir svg { height: 78%; }
 .lado text { font-family: var(--fonte); font-weight: 700; }
 @media (min-width: 1560px) { .lado { display: block; } }
+
+/* Peças laterais da seção Serviços (só em telas largas) */
+#servicos { position: relative; overflow: hidden; }
+.pec { display: none; position: absolute; bottom: 96px; height: 300px; pointer-events: none; }
+.pec svg { display: block; height: 100%; width: auto; overflow: visible; }
+.pec.esq { left: clamp(16px, 3vw, 70px); }
+.pec.dir { right: clamp(16px, 3vw, 70px); height: 330px; }
+.pec text { font-family: var(--fonte); font-weight: 700; }
+@media (min-width: 1560px) { .pec { display: block; } }
 
 /* Cards de resumo (rótulo mono + título + chips) */
 .resumo { padding-block: 0 !important; }
@@ -152,8 +161,19 @@ h2 { font-size: clamp(34px, 5vw, 54px); margin-top: 14px; }
 .item b { display: block; font-size: 19px; }
 .item small { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--fg-suave); margin-top: 2px; text-transform: uppercase; }
 .item > span { font-weight: 700; color: var(--accent-txt); white-space: nowrap; }
-.food .foto { aspect-ratio: 1; }
+.food .mock { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--line-d); background: #fff; align-self: center; }
+.food .mock .leg { position: absolute; left: 18px; top: 14px; font-size: 16px; color: #07080a; display: flex; flex-direction: column; font-weight: 700; }
+.food .mock .leg small { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #55555a; font-weight: 400; }
 @media (max-width: 900px) { .food .wrap { grid-template-columns: 1fr; } }
+
+/* Alimentação: fundo coral só nesta seção */
+.food { background: linear-gradient(135deg, #FF6363 0%, #F2484F 100%); color: var(--ink); }
+.food .eyebrow { color: var(--ink); }
+.food .lead { color: rgba(7,8,10,.82); }
+.food .item { background: var(--bg); border-color: transparent; }
+.food .item b { color: var(--fg); }
+.food .btn-p { background: var(--bg); color: var(--fg); }
+.food .mock { border-color: rgba(7,8,10,.12); box-shadow: 0 24px 60px rgba(7,8,10,.25); }
 
 /* Marca e ambiente */
 .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -265,7 +285,7 @@ footer a:hover { color: var(--fg); }
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="vis-mark" viewBox="-4 -6 217.4 112"><path transform="translate(-0.54,100.00) scale(0.07576,-0.07576)" d="M814.7 0.0H477.1L7.1 1320.0H344.0L645.9 381.0L948.4 1320.0H1285.3Z" fill="currentColor"/><g fill="var(--accent)" transform="translate(-13.2,0) rotate(11 131 50)"><path d="M122,101 C119,82 121,62 122,42 C123,24 126,8 131,-2 L139,2 C141,22 142,42 141,62 C140,80 141,92 138,101 L136,97 L134,102 L131,96 L128,102 L125,97 Z"/><path d="M144,30 C145.5,48 145.5,66 143.5,86 L142,86 C143.8,66 143.8,48 142.2,30 Z"/><path d="M117,52 C116,66 117,80 119,92 L120.4,92 C118.6,80 117.7,66 118.6,52 Z"/></g><path transform="translate(132.37,100.00) scale(0.07576,-0.07576)" d="M85.3 1320.0H564.9Q691.8 1320.0 794.0 1275.4Q896.2 1230.7 956.7 1140.6Q1017.3 1050.5 1017.3 914.0Q1017.3 778.5 956.7 684.0Q896.2 589.5 794.0 540.3Q691.8 491.1 564.9 491.1H383.9V0.0H85.3ZM383.9 727.5H482.0Q542.6 727.5 591.5 745.0Q640.3 762.5 669.1 802.2Q698.0 841.8 698.0 907.0Q698.0 972.6 669.1 1011.2Q640.3 1049.7 591.5 1066.7Q542.6 1083.6 482.0 1083.6H383.9Z" fill="currentColor"/></symbol></svg>
-<div class="nota" role="marquee" aria-label="Todos os nossos serviços. Solicite um orçamento."><div class="trilho"><div class="grupo"><span>Fachadas e letreiros</span><span>Adesivação de vitrines</span><span>Acrílicos</span><span>Windbanners e bandeiras</span><span>Lonas e banners</span><span>Adesivos e etiquetas</span><span>Placas para imobiliárias</span><span>Cartões de visita</span><span>Cardápios e menu boards</span><span>Sinalização</span><span>Ambientação</span><span>Logomarca e identidade visual</span><a href="#orcamento"><b>Solicite um orçamento →</b></a></div><div class="grupo" aria-hidden="true"><span>Fachadas e letreiros</span><span>Adesivação de vitrines</span><span>Acrílicos</span><span>Windbanners e bandeiras</span><span>Lonas e banners</span><span>Adesivos e etiquetas</span><span>Placas para imobiliárias</span><span>Cartões de visita</span><span>Cardápios e menu boards</span><span>Sinalização</span><span>Ambientação</span><span>Logomarca e identidade visual</span><a href="#orcamento"><b>Solicite um orçamento →</b></a></div></div></div>
+<div class="nota" role="marquee" aria-label="Todos os nossos serviços"><div class="trilho"><div class="grupo"><span>Fachadas e letreiros</span><span>Adesivação de vitrines</span><span>Acrílicos</span><span>Windbanners e bandeiras</span><span>Lonas e banners</span><span>Adesivos e etiquetas</span><span>Placas para imobiliárias</span><span>Cartões de visita</span><span>Cardápios e menu boards</span><span>Sinalização</span><span>Ambientação</span><span>Logomarca e identidade visual</span></div><div class="grupo" aria-hidden="true"><span>Fachadas e letreiros</span><span>Adesivação de vitrines</span><span>Acrílicos</span><span>Windbanners e bandeiras</span><span>Lonas e banners</span><span>Adesivos e etiquetas</span><span>Placas para imobiliárias</span><span>Cartões de visita</span><span>Cardápios e menu boards</span><span>Sinalização</span><span>Ambientação</span><span>Logomarca e identidade visual</span></div></div></div>
 
 <header class="nav">
   <div class="wrap">
@@ -339,6 +359,39 @@ footer a:hover { color: var(--fg); }
 
 <!-- SERVIÇOS -->
 <section id="servicos">
+  <div class="pec esq" aria-hidden="true">
+    <svg viewBox="0 0 150 300">
+      <rect x="22" y="110" width="7" height="190" fill="#9c9c9d"/><rect x="121" y="110" width="7" height="190" fill="#9c9c9d"/>
+      <g transform="rotate(-3 75 70)">
+        <rect x="4" y="10" width="142" height="112" rx="5" fill="#fff" stroke="#07080a" stroke-width="3"/>
+        <rect x="7" y="13" width="136" height="24" fill="#07080a"/>
+        <text x="14" y="30" font-size="12" fill="#fff">SUA MARCA <tspan fill="#FF6363">IMÓVEIS</tspan></text>
+        <rect x="7" y="37" width="136" height="56" fill="#FF6363"/>
+        <text x="75" y="82" font-size="40" fill="#fff" text-anchor="middle" letter-spacing="-1">VENDE</text>
+        <rect x="7" y="93" width="136" height="26" fill="#07080a"/>
+        <text x="14" y="111" font-size="12" fill="#fff">(00) 00000-0000</text>
+      </g>
+      <g transform="rotate(4 40 250)">
+        <rect x="6" y="226" width="86" height="40" rx="4" fill="#fff"/>
+        <rect x="12" y="232" width="74" height="28" rx="2" fill="#07080a"/>
+        <text x="49" y="253" font-size="20" fill="#fff" text-anchor="middle">ALUGA</text>
+      </g>
+    </svg>
+  </div>
+  <div class="pec dir" aria-hidden="true">
+    <svg viewBox="0 0 190 330">
+      <g transform="rotate(-8 60 50)"><circle cx="62" cy="52" r="46" fill="#FF6363"/>
+        <text x="62" y="48" font-size="18" fill="#fff" text-anchor="middle">SUA</text><text x="62" y="68" font-size="18" fill="#fff" text-anchor="middle">LOGO</text></g>
+      <g transform="rotate(7 130 120)"><rect x="96" y="96" width="82" height="82" rx="14" fill="#07080a"/>
+        <text x="137" y="132" font-size="16" fill="#fff" text-anchor="middle">SUA</text><text x="137" y="152" font-size="16" fill="#FF6363" text-anchor="middle">LOGO</text></g>
+      <g transform="rotate(-9 90 232)"><rect x="10" y="190" width="150" height="86" rx="6" fill="#FF6363"/>
+        <text x="85" y="226" font-size="17" fill="#07080a" text-anchor="middle">Sua</text><text x="85" y="250" font-size="17" fill="#fff" text-anchor="middle">Logo</text></g>
+      <g transform="rotate(5 110 292)"><rect x="40" y="258" width="140" height="66" rx="6" fill="#07080a"/>
+        <rect x="150" y="258" width="30" height="66" fill="#FF6363"/>
+        <text x="52" y="282" font-size="14" fill="#fff">Sua<tspan fill="#FF6363">Logo</tspan></text>
+        <text x="52" y="300" font-size="9" fill="#cecece">Fulano de Tal</text><text x="52" y="313" font-size="8" fill="#9c9c9d">(00) 00000-0000</text></g>
+    </svg>
+  </div>
   <div class="wrap">
     <div class="cab">
       <div>
@@ -378,14 +431,38 @@ footer a:hover { color: var(--fg); }
       </div>
       <div class="acoes"><a class="btn btn-p" href="#orcamento">Pedir orçamento</a></div>
     </div>
-    <div class="foto" role="img" aria-label="Açaiteria Zazá com windbanner na calçada, letreiro e cardápio de parede" style="background-image:url('imagens/CriacoesReais/Zaza_AcaieSorvete.jpeg');background-position:center 30%"><span><small>Linha Alimentação · Projeto real</small>Zazá Açaí &amp; Sorvetes: marca, fachada, windbanner e cardápio</span></div>
+    <div class="mock"><svg viewBox="30 190 940 470" role="img" aria-label="Mockup de cardápio em PVC: uma peça em pé com o hambúrguer na frente e quatro deitadas sobre uma mesa branca" style="width:100%;height:auto;display:block">
+<defs><filter id="bl" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="7"/></filter>
+<linearGradient id="mesa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f2f4"/><stop offset="1" stop-color="#fff"/></linearGradient>
+<linearGradient id="fundo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfe1e6"/><stop offset="1" stop-color="#eceef1"/></linearGradient></defs>
+<rect width="1000" height="680" fill="url(#fundo)"/><rect y="150" width="1000" height="530" fill="url(#mesa)"/><rect y="146" width="1000" height="6" fill="#d5d8dd"/>
+<polygon points="79.0,302.0 187.4,265.4 294.4,316.3 186.1,352.9" fill="#000" opacity=".14" filter="url(#bl)"/><polygon points="70.0,293.0 178.4,256.4 285.4,307.3 177.1,343.9" fill="#c4c8ce"/><polygon points="70.0,292.0 178.4,255.4 285.4,306.3 177.1,342.9" fill="#c4c8ce"/><polygon points="70.0,291.0 178.4,254.4 285.4,305.3 177.1,341.9" fill="#dcdfe3"/><image href="imagens/cardapio-lenas-verso.png" width="526" height="752" transform="matrix(0.2060 -0.0695 0.1424 0.0677 70.0 290.0)"/><polygon points="70.0,290.0 178.4,253.4 285.4,304.3 177.1,340.9" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width=".8"/><polygon points="129.0,452.0 247.3,421.2 330.1,479.3 211.7,510.1" fill="#000" opacity=".14" filter="url(#bl)"/><polygon points="120.0,443.0 238.3,412.2 321.1,470.3 202.7,501.1" fill="#c4c8ce"/><polygon points="120.0,442.0 238.3,411.2 321.1,469.3 202.7,500.1" fill="#c4c8ce"/><polygon points="120.0,441.0 238.3,410.2 321.1,468.3 202.7,499.1" fill="#dcdfe3"/><image href="imagens/cardapio-lenas-frente.png" width="526" height="752" transform="matrix(0.2250 -0.0586 0.1100 0.0773 120.0 440.0)"/><polygon points="120.0,440.0 238.3,409.2 321.1,467.3 202.7,498.1" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width=".8"/><polygon points="659.0,292.0 776.8,260.8 861.2,318.4 743.4,349.7" fill="#000" opacity=".14" filter="url(#bl)"/><polygon points="650.0,283.0 767.8,251.8 852.2,309.4 734.4,340.7" fill="#c4c8ce"/><polygon points="650.0,282.0 767.8,250.8 852.2,308.4 734.4,339.7" fill="#c4c8ce"/><polygon points="650.0,281.0 767.8,249.8 852.2,307.4 734.4,338.7" fill="#dcdfe3"/><image href="imagens/cardapio-lenas-verso.png" width="526" height="752" transform="matrix(0.2239 -0.0594 0.1123 0.0767 650.0 280.0)"/><polygon points="650.0,280.0 767.8,248.8 852.2,306.4 734.4,337.7" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width=".8"/><polygon points="709.0,442.0 818.1,405.8 923.6,457.2 814.5,493.4" fill="#000" opacity=".14" filter="url(#bl)"/><polygon points="700.0,433.0 809.1,396.8 914.6,448.2 805.5,484.4" fill="#c4c8ce"/><polygon points="700.0,432.0 809.1,395.8 914.6,447.2 805.5,483.4" fill="#c4c8ce"/><polygon points="700.0,431.0 809.1,394.8 914.6,446.2 805.5,482.4" fill="#dcdfe3"/><image href="imagens/cardapio-lenas-frente.png" width="526" height="752" transform="matrix(0.2074 -0.0688 0.1403 0.0684 700.0 430.0)"/><polygon points="700.0,430.0 809.1,393.8 914.6,445.2 805.5,481.4" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width=".8"/><polygon points="375.0,610.0 697.5,587.5 717.5,611.5 361.0,632.0" fill="#000" opacity=".22" filter="url(#bl)"/><polygon points="393.0,602.0 441.0,600.0 453.0,612.0 403.0,616.0" fill="#e2e4e8"/><polygon points="403.0,616.0 453.0,612.0 453.0,616.0 403.0,620.0" fill="#bfc3c9"/><polygon points="557.5,581.5 605.5,579.5 617.5,591.5 567.5,595.5" fill="#e2e4e8"/><polygon points="567.5,595.5 617.5,591.5 617.5,595.5 567.5,599.5" fill="#bfc3c9"/><image href="imagens/cardapio-lenas-frente.png" width="526" height="752" transform="matrix(0.4610 -0.0238 0 0.4753 385 252.6)"/><polygon points="627.5,240.1 634.5,237.1 634.5,594.5 627.5,597.5" fill="#cdd0d6"/><polygon points="385.0,252.6 392.0,249.6 634.5,237.1 627.5,240.1" fill="#e4e6ea"/><polygon points="385.0,252.6 627.5,240.1 627.5,597.5 385.0,610.0" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width=".8"/></svg><span class="leg"><small>Linha Alimentação · Cardápio em PVC</small>Lena's Lanches</span></div>
   </div>
 </section>
 
 <!-- IMOBILIÁRIAS -->
 <section id="imobiliarias" class="light-off imob">
   <div class="wrap">
-    <div class="vis" role="img" aria-label="Placa de imobiliária em PVC com a palavra VENDE, marca e telefone"><div class="placa"><div class="t">SUA MARCA <em>IMÓVEIS</em></div><div class="v">VENDE</div><div class="f">(00) 00000-0000</div></div><span class="kit">Ilustração · Kit de placas</span></div>
+    <div class="vis"><svg viewBox="20 0 520 540" role="img" aria-label="Mockup de placas de PVC expandido branco de 3 mm: cinco placas empilhadas e uma em pé com a palavra VENDE" style="width:96%;height:auto;overflow:visible">
+      <defs><filter id="bl" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="9"/></filter></defs>
+      <g font-family="League Spartan, sans-serif" font-weight="700">
+      <g transform="translate(40,70)">
+      <polygon points="290,270 486,214 560,262 330,330" fill="#000" opacity=".16" filter="url(#bl)"/>
+      <g transform="translate(300,80) matrix(1,-0.295,0,1,0,0)">
+  <rect width="190" height="190" fill="#fff" stroke="#e2e4e8" stroke-width="1"/>
+  <rect x="0" y="14" width="190" height="34" fill="#151517"/>
+  <text x="12" y="37" font-size="15" fill="#fff">SUA MARCA <tspan fill="#FF6363">IMÓVEIS</tspan></text>
+  <rect x="0" y="48" width="190" height="84" fill="#FF6363"/>
+  <text x="95" y="108" font-size="58" fill="#fff" text-anchor="middle" letter-spacing="-2">VENDE</text>
+  <rect x="0" y="132" width="190" height="44" fill="#0a0a0b"/>
+  <text x="12" y="161" font-size="18" fill="#fff">(00) 00000-0000</text>
+</g>
+<polygon points="490,24 497,28.2 497,218.2 490,214" fill="#c6cad0" stroke="#b3b8c0" stroke-width=".6"/>
+<polygon points="490,24 497,28.2 497,218.2 490,214" fill="#c6cad0" stroke="#b3b8c0" stroke-width=".6"/><polygon points="300,270 490,214 497,218.2 307,274.2" fill="#c6cad0"/>
+      </g>
+      <g transform="translate(0,0)"><polygon points="44.0,470.0 190.0,520.0 430.0,420.0 330.0,372.0" fill="#000" opacity=".18" filter="url(#bl)"/><polygon points="50.0,400.0 170.0,470.0 170.0,478.0 50.0,408.0" fill="#dcdfe3" stroke="#c4c8ce" stroke-width=".6"/><polygon points="170.0,470.0 380.0,408.0 380.0,416.0 170.0,478.0" fill="#c6cad0" stroke="#b3b8c0" stroke-width=".6"/><polygon points="50.0,400.0 260.0,338.0 380.0,408.0 170.0,470.0" fill="#fff" stroke="#dfe2e6" stroke-width=".8"/><polygon points="56.0,388.0 176.0,458.0 176.0,466.0 56.0,396.0" fill="#dcdfe3" stroke="#c4c8ce" stroke-width=".6"/><polygon points="176.0,458.0 386.0,396.0 386.0,404.0 176.0,466.0" fill="#c6cad0" stroke="#b3b8c0" stroke-width=".6"/><polygon points="56.0,388.0 266.0,326.0 386.0,396.0 176.0,458.0" fill="#fff" stroke="#dfe2e6" stroke-width=".8"/><polygon points="45.0,376.0 165.0,446.0 165.0,454.0 45.0,384.0" fill="#dcdfe3" stroke="#c4c8ce" stroke-width=".6"/><polygon points="165.0,446.0 375.0,384.0 375.0,392.0 165.0,454.0" fill="#c6cad0" stroke="#b3b8c0" stroke-width=".6"/><polygon points="45.0,376.0 255.0,314.0 375.0,384.0 165.0,446.0" fill="#fff" stroke="#dfe2e6" stroke-width=".8"/><polygon points="57.0,364.0 177.0,434.0 177.0,442.0 57.0,372.0" fill="#dcdfe3" stroke="#c4c8ce" stroke-width=".6"/><polygon points="177.0,434.0 387.0,372.0 387.0,380.0 177.0,442.0" fill="#c6cad0" stroke="#b3b8c0" stroke-width=".6"/><polygon points="57.0,364.0 267.0,302.0 387.0,372.0 177.0,434.0" fill="#fff" stroke="#dfe2e6" stroke-width=".8"/><polygon points="47.0,352.0 167.0,422.0 167.0,430.0 47.0,360.0" fill="#dcdfe3" stroke="#c4c8ce" stroke-width=".6"/><polygon points="167.0,422.0 377.0,360.0 377.0,368.0 167.0,430.0" fill="#c6cad0" stroke="#b3b8c0" stroke-width=".6"/><polygon points="47.0,352.0 257.0,290.0 377.0,360.0 167.0,422.0" fill="#fff" stroke="#dfe2e6" stroke-width=".8"/></g>
+      </g>
+    </svg><span class="kit">Mockup · PVC expandido branco 3 mm</span></div>
     <div>
       <div class="eyebrow">Para imobiliárias e corretores</div>
       <h2>Placas em PVC que ajudam a vender e alugar mais rápido</h2>
