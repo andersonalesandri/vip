@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Carrossel Banner</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Geist+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--preto:#0A0A0B;--grafite:#151517;--acc:#FF6363;--cinza:#CECECE;--borda:rgba(255,255,255,.12)}
+*{box-sizing:border-box;margin:0}
+body{background:#222;font-family:Inter,system-ui,sans-serif;color:#fff}
+.s{width:1080px;height:1350px;background:var(--preto);position:relative;overflow:hidden;display:none;padding:80px}
+.s:target{display:block}
+body:not(:has(:target)) #s1{display:block}
+.mono{font-family:"Geist Mono",monospace;font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.mono:before{content:"";display:inline-block;width:48px;height:3px;background:var(--acc);vertical-align:middle;margin-right:16px}
+h1,h2{letter-spacing:-.02em;font-weight:700;line-height:1.02}
+h1{font-size:120px}h2{font-size:92px}
+em{font-style:normal;color:var(--acc)}
+p{color:var(--cinza);font-size:36px;line-height:1.4}
+.foto{background-size:cover;background-position:center;border-radius:28px;border:1px solid var(--borda)}
+.foot{position:absolute;left:80px;right:80px;bottom:60px;display:flex;justify-content:space-between;align-items:center;font-size:26px;color:#9C9C9D}
+.foot img{height:56px}
+.dots{display:flex;gap:10px}.dots i{width:14px;height:14px;border-radius:50%;background:#444}.dots i.on{background:var(--acc);width:40px;border-radius:8px}
+.sw{position:absolute;right:80px;top:80px;font-family:"Geist Mono",monospace;font-size:24px;color:#9C9C9D}
+.card{background:var(--grafite);border:1px solid var(--borda);border-radius:24px;padding:36px 40px;display:flex;gap:32px;align-items:center}
+.card b{font-size:46px;display:block;font-weight:600}.card span{font-size:30px;color:var(--cinza)}
+.ic{flex:none;width:96px;height:96px;border-radius:22px;background:rgba(255,99,99,.15);color:var(--acc);display:grid;place-items:center;font-size:48px;font-weight:700}
+.chip{display:inline-block;padding:18px 34px;border-radius:999px;border:2px solid var(--borda);font-size:36px;margin:0 14px 18px 0}
+.chip.a{background:var(--acc);border-color:var(--acc);color:#0A0A0B;font-weight:600}
+.btn{display:inline-block;background:var(--acc);color:#0A0A0B;font-weight:700;font-size:44px;padding:34px 64px;border-radius:999px}
+</style></head><body>
+
+<section class="s" id="s1">
+ <div class="mono">Comunicação visual · 18 anos</div>
+ <h1 style="margin-top:36px">Banner que<br>faz sua marca<br><em>ser vista.</em></h1>
+ <div class="foto" style="position:absolute;left:80px;right:80px;top:640px;height:520px;background-image:url('../imagens/servico-lonas.jpg')"></div>
+ <div class="sw">Deslize →</div>
+ <div class="foot"><span>@visaoideal</span><div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div></div>
+</section>
+
+<section class="s" id="s2">
+ <div class="mono">Por que banner</div>
+ <h2 style="margin:36px 0 56px">Trabalha por você,<br><em>24 horas por dia.</em></h2>
+ <div style="display:grid;gap:28px">
+  <div class="card"><div class="ic">◉</div><div><b>Visibilidade 24/7</b><span>Sua marca aparece mesmo com a loja fechada.</span></div></div>
+  <div class="card"><div class="ic">✎</div><div><b>Arte personalizada</b><span>Criada com a identidade do seu negócio.</span></div></div>
+  <div class="card"><div class="ic">▤</div><div><b>Lona resistente</b><span>Material durável, com acabamento profissional.</span></div></div>
+ </div>
+ <div class="foot"><span>@visaoideal</span><div class="dots"><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div></div>
+</section>
+
+<section class="s" id="s3">
+ <div class="mono">Windbanner</div>
+ <h2 style="margin:36px 0 40px">Pena, gota<br>ou <em>bandeira.</em></h2>
+ <div class="foto" style="height:560px;background-image:url('../imagens/servico-windbanner.jpg')"></div>
+ <p style="margin-top:40px">Com base e haste. Modelos padrão de pronta entrega para promoções, lançamentos e eventos.</p>
+ <div class="foot"><span>@visaoideal</span><div class="dots"><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div></div>
+</section>
+
+<section class="s" id="s4">
+ <div class="mono">Onde usar</div>
+ <h2 style="margin:36px 0 56px">Um banner,<br><em>vários usos.</em></h2>
+ <div>
+  <span class="chip a">Promoções</span><span class="chip">Fachada</span><span class="chip">Eventos</span>
+  <span class="chip">Inaugurações</span><span class="chip a">Pizzarias e lanchonetes</span><span class="chip">Clínicas</span>
+  <span class="chip">Lojas</span><span class="chip">Franquias</span><span class="chip a">Feiras</span>
+ </div>
+ <p style="margin-top:56px">Do pequeno comércio à rede com várias unidades: mesma qualidade, mesmo padrão.</p>
+ <div class="foot"><span>@visaoideal</span><div class="dots"><i></i><i></i><i></i><i class="on"></i><i></i><i></i></div></div>
+</section>
+
+<section class="s" id="s5">
+ <div class="mono">Como funciona</div>
+ <h2 style="margin:36px 0 56px">Da ideia à<br><em>instalação.</em></h2>
+ <div style="display:grid;gap:28px">
+  <div class="card"><div class="ic">1</div><div><b>Briefing</b><span>Você conta o que precisa.</span></div></div>
+  <div class="card"><div class="ic">2</div><div><b>Arte e aprovação</b><span>Você vê antes de produzir.</span></div></div>
+  <div class="card"><div class="ic">3</div><div><b>Produção</b><span>Impressão e acabamento em casa.</span></div></div>
+  <div class="card"><div class="ic">4</div><div><b>Entrega e instalação</b><span>Pronto para usar.</span></div></div>
+ </div>
+ <div class="foot"><span>@visaoideal</span><div class="dots"><i></i><i></i><i></i><i></i><i class="on"></i><i></i></div></div>
+</section>
+
+<section class="s" id="s6" style="display:none;background:var(--grafite)">
+ <div class="mono">18 anos de experiência</div>
+ <h1 style="margin:36px 0 48px;font-size:112px">Peça seu<br><em>orçamento.</em></h1>
+ <p style="margin-bottom:64px">Chame no WhatsApp com o tamanho e o uso do banner. Respondemos rápido.</p>
+ <span class="btn">WhatsApp (21) 99783-6113</span>
+ <p style="margin-top:40px;font-size:30px">Rio de Janeiro e Minas Gerais</p>
+ <div class="foto" style="position:absolute;left:80px;right:80px;top:880px;height:300px;background-image:url('../imagens/servico-fachada.jpg')"></div>
+ <div class="foot"><span>@visaoideal</span><div class="dots"><i></i><i></i><i></i><i></i><i></i><i class="on"></i></div></div>
+</section>
+<style>#s6:target{display:block!important}</style>
+</body></html>

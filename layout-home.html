@@ -1,0 +1,520 @@
+<title>Visão Ideal Produções</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&family=Geist+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* Design system Raycast (dark-editorial): League Spartan regular/bold, rótulos em Geist Mono, botões retos de 6px, cards de 12px.
+   Seções alternam escuro (#07080a) e claro. Acento coral #FF6363 do Raycast. */
+:root {
+  --bg: #07080a;
+  --surface: #101111;
+  --card: #1b1c1e;
+  --input: #050506;
+  --off: #f6f6f7;
+  --accent: #FF6363;
+  --accent-15: rgba(255,99,99,.15);
+  --accent-txt: #FF6363;
+  --accent-ink: #C93030;
+  --fg: #f9f9f9;
+  --fg-suave: #9c9c9d;
+  --fg-claro: #cecece;
+  --ink: #07080a;
+  --ink-suave: #55555a;
+  --line-d: rgba(255,255,255,.08);
+  --line-l: #e4e4e7;
+  --fonte: "League Spartan", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --r-btn: 6px; --r-card: 12px; --r-input: 8px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #fff; color: var(--ink); font-family: var(--fonte); font-weight: 400; font-size: 18px; line-height: 1.5; letter-spacing: .2px; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { margin: 0; font-weight: 700; letter-spacing: -.01em; line-height: 1.08; text-wrap: balance; }
+p { margin: 0; }
+b, strong { font-weight: 700; }
+.wrap { max-width: 1200px; margin-inline: auto; padding-inline: 20px; }
+section { padding-block: 88px; }
+.dark { background: var(--bg); color: var(--fg); }
+.dark.alt { background: var(--surface); }
+.light-off { background: var(--off); }
+h2 { font-size: clamp(34px, 5vw, 54px); margin-top: 14px; }
+.lead { color: var(--ink-suave); max-width: 56ch; margin-top: 16px; }
+.dark .lead { color: var(--fg-claro); }
+.cab { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 44px; }
+
+/* Rótulo mono (eyebrow, labels, chips) */
+.mono { font-family: var(--mono); font-size: 12px; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); font-weight: 400; }
+.dark .eyebrow { color: var(--accent-txt); }
+
+/* Botões */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 26px; font: 700 17px/1 var(--fonte); letter-spacing: .3px; border-radius: var(--r-btn); border: 1px solid transparent; cursor: pointer; transition: opacity .2s; }
+.btn:hover { opacity: .6; }
+.btn-p { background: var(--accent); color: #07080a; }
+.btn-s { border-color: rgba(255,255,255,.7); color: var(--fg); background: transparent; }
+.btn-sl { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn-w { width: 100%; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.link { font-weight: 700; display: inline-flex; gap: 8px; }
+.link:hover { opacity: .6; }
+.link span { color: var(--accent); }
+
+/* Navbar */
+.nav { position: sticky; top: 0; z-index: 20; background: rgba(7,8,10,.9); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line-d); color: var(--fg); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 24px; }
+.logo { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 20px; line-height: 1; }
+.vismark { width: 64px; height: 28px; flex: none; color: #fff; }
+.logo i { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--line-d); background: var(--surface); display: grid; place-items: center; font-style: normal; color: var(--accent); font-size: 18px; }
+.logo small { display: block; font-family: var(--mono); font-weight: 400; font-size: 10px; color: var(--fg-suave); letter-spacing: .14em; text-transform: uppercase; margin-top: 4px; }
+.menu { display: flex; gap: 28px; font-size: 16px; font-weight: 700; }
+.menu a:hover { opacity: .6; }
+.nav .btn { padding: 11px 20px; font-size: 15px; }
+@media (max-width: 900px) { .menu { display: none; } }
+
+
+/* Imobiliárias */
+.imob .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: center; }
+.imob .lista { margin-top: 28px; }
+.imob .item { background: #fff; border-color: var(--line-l); }
+.imob .item small { color: #55555a; }
+.imob .item > span { color: var(--accent-ink); }
+.imob .vis { background: #0a0a0b; border-radius: 16px; aspect-ratio: 1; display: grid; place-items: center; position: relative; overflow: hidden; }
+.imob .placa { width: 78%; background: #fff; border: 5px solid #fff; border-radius: 6px; overflow: hidden; transform: rotate(-3deg); box-shadow: 0 24px 60px rgba(0,0,0,.6); }
+.imob .placa .t { background: #151517; color: #fff; font-weight: 700; padding: 14px 18px; font-size: clamp(14px, 2vw, 20px); }
+.imob .placa .t em { font-style: normal; color: var(--accent); }
+.imob .placa .v { background: var(--accent); color: #fff; font-weight: 800; text-align: center; letter-spacing: -.02em; font-size: clamp(48px, 9vw, 96px); line-height: 1.1; padding: 8px 0; }
+.imob .placa .f { background: #0a0a0b; color: #fff; font-weight: 700; padding: 14px 18px; font-size: clamp(16px, 2.6vw, 28px); }
+.imob .vis .kit { position: absolute; left: 6%; bottom: 6%; font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #cecece; }
+@media (max-width: 900px) { .imob .wrap { grid-template-columns: 1fr; } .imob .vis { order: -1; aspect-ratio: 16 / 10; } }
+
+/* Hero */
+.hero { padding-block: 72px 80px; }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+.hero h1 { font-size: clamp(44px, 7vw, 82px); margin-top: 20px; }
+.hero h1 em { font-style: normal; color: var(--accent-txt); }
+.hero .lead { font-size: 20px; }
+.acoes { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+.hero .acoes .btn { min-width: 200px; }
+.foto { position: relative; border-radius: var(--r-card); overflow: hidden; background: linear-gradient(160deg, #26262a, #111113); border: 1px solid var(--line-d); display: flex; align-items: flex-end; background-size: cover; background-position: center; }
+.foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,8,10,.8), rgba(7,8,10,0) 55%); }
+.foto > span { position: relative; z-index: 1; padding: 16px 18px; color: var(--fg); display: flex; flex-direction: column; gap: 2px; font-size: 16px; }
+.foto > span small { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-claro); }
+.foto > span b { font-size: 20px; }
+.hero .foto { aspect-ratio: 4 / 5; }
+@media (max-width: 900px) { .hero .wrap { grid-template-columns: 1fr; } .hero .foto { aspect-ratio: 16 / 10; } .hero .acoes .btn { flex: 1; } }
+
+/* Cards de resumo (rótulo mono + título + chips) */
+.resumo { padding-block: 0 !important; }
+.resumo .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding-block: 0 80px; }
+.mini { background: var(--surface); border: 1px solid var(--line-d); border-radius: var(--r-card); padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.mini .mono { color: var(--accent-txt); font-size: 10px; }
+.mini h3 { font-size: 24px; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip { font: 400 14px var(--fonte); letter-spacing: .2px; background: var(--input); border: 1px solid rgba(255,255,255,.12); border-radius: 6px; padding: 4px 10px; color: var(--fg); }
+.chip.t { background: rgba(255,99,99,.1); border-color: rgba(255,99,99,.28); }
+@media (max-width: 900px) { .resumo .wrap { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .resumo .wrap { grid-template-columns: 1fr; } }
+
+/* Grids e cards */
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card { border: 1px solid var(--line-l); border-radius: var(--r-card); background: #fff; overflow: hidden; display: flex; flex-direction: column; transition: border-color .2s; }
+.card:hover { border-color: var(--accent); }
+.card .img { aspect-ratio: 3 / 2; background: linear-gradient(160deg, #26262a, #121214) center / cover; position: relative; }
+.card .img::after { content: ""; position: absolute; left: 0; bottom: 0; width: 40%; height: 4px; background: var(--accent); }
+.card .corpo { padding: 22px 24px 26px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.card h3 { font-size: 26px; }
+.card p { color: var(--ink-suave); font-size: 17px; flex: 1; }
+.tag { align-self: flex-start; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; background: var(--accent-15); color: var(--accent-ink); border-radius: 4px; padding: 3px 8px; }
+.preco { font-family: var(--mono); font-size: 12px; color: var(--accent-ink); }
+@media (max-width: 900px) { .grid3 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .grid3 { grid-template-columns: 1fr; } section { padding-block: 64px; } }
+
+/* Alimentação */
+.food .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.lista { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 32px; }
+.item { background: var(--surface); border: 1px solid var(--line-d); border-radius: 10px; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.item b { display: block; font-size: 19px; }
+.item small { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--fg-suave); margin-top: 2px; text-transform: uppercase; }
+.item > span { font-weight: 700; color: var(--accent-txt); white-space: nowrap; }
+.food .foto { aspect-ratio: 1; }
+@media (max-width: 900px) { .food .wrap { grid-template-columns: 1fr; } }
+
+/* Marca e ambiente */
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.painel { border-radius: 16px; padding: 40px; min-height: 440px; display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; position: relative; overflow: hidden; color: var(--fg); background: #111 center / cover; }
+.painel::before { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,8,10,.93), rgba(7,8,10,.35) 70%, rgba(7,8,10,.15)); }
+.painel > * { position: relative; }
+.painel h3 { font-size: 36px; }
+.painel p { max-width: 44ch; color: var(--fg-claro); }
+.painel ul { margin: 6px 0 10px; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.painel li { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; border: 1px solid rgba(255,255,255,.3); border-radius: 4px; padding: 4px 10px; }
+.painel .tag { background: var(--accent-15); color: var(--accent-txt); }
+.linha-cond { position: absolute !important; top: 56px; left: 0; width: 100%; height: 3px; background: var(--accent); }
+.linha-cond::after { content: ""; position: absolute; right: 40px; top: -6px; width: 15px; height: 15px; background: var(--accent); border-radius: 50%; }
+@media (max-width: 900px) { .duo { grid-template-columns: 1fr; } .painel { padding: 28px; min-height: 360px; } }
+
+
+/* Portfólio */
+.port { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+.port .foto { border-color: var(--line-l); min-height: 260px; }
+.port .foto:nth-child(1) { grid-column: span 7; min-height: 420px; }
+.port .foto:nth-child(2) { grid-column: span 5; min-height: 420px; }
+.port .foto:nth-child(n+3) { grid-column: span 4; }
+.port .foto:nth-child(n+6) { grid-column: span 6; min-height: 320px; }
+.port.filtrado .foto:nth-child(n) { grid-column: span 4; min-height: 320px; }
+.port .foto[hidden] { display: none; }
+.port .foto { background-position: center 30%; }
+@media (max-width: 800px) { .port .foto:nth-child(n), .port.filtrado .foto:nth-child(n) { grid-column: span 12; min-height: 260px; } }
+.filtros { display: inline-flex; gap: 2px; flex-wrap: wrap; padding: 4px; border: 1px solid var(--line-l); border-radius: 8px; background: #fff; }
+.filtros button { font: 400 11px var(--mono); letter-spacing: .12em; text-transform: uppercase; border: 0; background: transparent; color: var(--ink-suave); border-radius: 6px; padding: 9px 14px; cursor: pointer; }
+.filtros button.on { background: var(--accent); color: #07080a; }
+
+/* Processo */
+.passos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: p; }
+.passo { border-top: 1px solid var(--line-d); padding-top: 22px; counter-increment: p; }
+.passo::before { content: "Etapa " counter(p); font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-txt); }
+.passo h3 { font-size: 26px; margin-top: 10px; }
+.passo p { color: var(--fg-claro); margin-top: 8px; font-size: 17px; }
+@media (max-width: 900px) { .passos { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .passos { grid-template-columns: 1fr; } }
+
+/* Prova social */
+.logos { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 36px; }
+.logos div { border: 1px dashed var(--line-l); border-radius: 10px; height: 64px; display: grid; place-items: center; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #8a8a8f; }
+@media (max-width: 800px) { .logos { grid-template-columns: repeat(3, 1fr); } }
+.dep { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+.dep blockquote { margin: 0; border: 1px solid var(--line-l); border-radius: var(--r-card); padding: 26px; display: flex; flex-direction: column; gap: 18px; background: var(--off); }
+.dep blockquote p { font-size: 20px; line-height: 1.4; }
+.dep cite { font-style: normal; font-size: 16px; color: var(--ink-suave); }
+.dep cite b { color: var(--ink); display: block; }
+@media (max-width: 900px) { .dep { grid-template-columns: 1fr; } }
+
+.cta { background: var(--accent); color: #07080a; padding-block: 64px; }
+.cta .wrap { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.cta .mono { color: rgba(7,8,10,.7); }
+.cta h2 { margin-top: 10px; font-size: clamp(30px, 4.4vw, 48px); max-width: 20ch; }
+.cta .btn { background: #07080a; color: #f9f9f9; }
+
+/* Orçamento: card de formulário no padrão do design system */
+.orc .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: start; }
+.contatos { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; color: var(--fg-claro); }
+.contatos a { color: var(--fg); font-weight: 700; }
+.contatos b { display: block; font-family: var(--mono); font-size: 11px; font-weight: 400; letter-spacing: .12em; text-transform: uppercase; color: var(--fg-suave); }
+.fcard { background: var(--card); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 28px; }
+.fhead { display: flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+.fhead .vismark { width: 57px; height: 25px; }
+.fhead i { width: 40px; height: 40px; border: 1px solid var(--line-d); border-radius: 8px; background: var(--bg); display: grid; place-items: center; font-style: normal; color: var(--accent); font-weight: 700; }
+.fhead .mono { font-size: 10px; color: var(--fg-suave); display: block; }
+.pill { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-txt); border: 1px solid rgba(255,99,99,.5); border-radius: 6px; padding: 5px 10px; background: rgba(255,99,99,.06); }
+.pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.ajuda { grid-column: 1 / -1; font-size: 15px; color: var(--fg-suave); margin-top: -6px; }
+.fhead h3 { font-size: 22px; }
+form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.campo { display: flex; flex-direction: column; gap: 8px; min-width: 0; position: relative; }
+.campo.full { grid-column: 1 / -1; }
+label { font-family: var(--mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--fg-suave); }
+.ic { position: relative; }
+.ic svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; stroke: var(--fg-suave); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; }
+input:not([type=checkbox]), select, textarea { width: 100%; font: 400 17px var(--fonte); color: var(--fg); background: var(--input); border: 1px solid rgba(255,255,255,.1); border-radius: var(--r-input); padding: 14px 14px; }
+.ic input { padding-left: 42px; }
+input::placeholder, textarea::placeholder { color: #6a6b6c; }
+input:focus, select:focus, textarea:focus { border-color: #f9f9f9; outline: none; }
+textarea { min-height: 96px; resize: vertical; }
+.check { grid-column: 1 / -1; display: flex; align-items: center; gap: 10px; font-family: var(--fonte); text-transform: none; letter-spacing: .2px; font-size: 16px; color: var(--fg-claro); }
+.check input { width: 18px; height: 18px; accent-color: var(--accent); margin: 0; }
+.ou { grid-column: 1 / -1; display: flex; align-items: center; gap: 14px; font-family: var(--mono); font-size: 10px; letter-spacing: .14em; color: var(--fg-suave); }
+.ou::before, .ou::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,.12); }
+.ok { grid-column: 1 / -1; font-size: 16px; color: #5FC992; }
+form .btn { grid-column: 1 / -1; }
+@media (max-width: 900px) { .orc .wrap { grid-template-columns: 1fr; } form { grid-template-columns: 1fr; } }
+
+footer { background: var(--bg); color: var(--fg-suave); border-top: 1px solid var(--line-d); padding-block: 40px; font-size: 16px; }
+footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+footer a:hover { color: var(--fg); }
+.zap { position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 30; background: var(--accent); color: #07080a; border-radius: var(--r-btn); padding: 14px 20px; font-weight: 700; font-size: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.35); transition: opacity .2s; }
+.zap:hover { opacity: .65; }
+.nota { background: var(--card); color: var(--fg-claro); font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-align: center; padding: 8px 16px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="vis-mark" viewBox="-4 -6 217.4 112"><path transform="translate(-0.54,100.00) scale(0.07576,-0.07576)" d="M814.7 0.0H477.1L7.1 1320.0H344.0L645.9 381.0L948.4 1320.0H1285.3Z" fill="currentColor"/><g fill="var(--accent)" transform="translate(-13.2,0) rotate(11 131 50)"><path d="M122,101 C119,82 121,62 122,42 C123,24 126,8 131,-2 L139,2 C141,22 142,42 141,62 C140,80 141,92 138,101 L136,97 L134,102 L131,96 L128,102 L125,97 Z"/><path d="M144,30 C145.5,48 145.5,66 143.5,86 L142,86 C143.8,66 143.8,48 142.2,30 Z"/><path d="M117,52 C116,66 117,80 119,92 L120.4,92 C118.6,80 117.7,66 118.6,52 Z"/></g><path transform="translate(132.37,100.00) scale(0.07576,-0.07576)" d="M85.3 1320.0H564.9Q691.8 1320.0 794.0 1275.4Q896.2 1230.7 956.7 1140.6Q1017.3 1050.5 1017.3 914.0Q1017.3 778.5 956.7 684.0Q896.2 589.5 794.0 540.3Q691.8 491.1 564.9 491.1H383.9V0.0H85.3ZM383.9 727.5H482.0Q542.6 727.5 591.5 745.0Q640.3 762.5 669.1 802.2Q698.0 841.8 698.0 907.0Q698.0 972.6 669.1 1011.2Q640.3 1049.7 591.5 1066.7Q542.6 1083.6 482.0 1083.6H383.9Z" fill="currentColor"/></symbol></svg>
+<div class="nota">LAYOUT DE PROPOSTA. PORTFÓLIO COM PROJETOS REAIS. DEMAIS IMAGENS, TEXTOS E CONTATOS SÃO PROVISÓRIOS.</div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#"><svg class="vismark" viewBox="-4 -6 254.1 112" role="img" aria-label="VIP"><use href="#vis-mark"/></svg><span>Visão Ideal<small>Produções</small></span></a>
+    <nav class="menu" aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#alimentacao">Alimentação</a>
+      <a href="#imobiliarias">Imobiliárias</a>
+      <a href="#marca">Marca e ambiente</a>
+      <a href="#portfolio">Portfólio</a>
+      <a href="#processo">Como funciona</a>
+    </nav>
+    <a class="btn btn-p" href="#orcamento">Orçamento</a>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="dark hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Comunicação visual · 18 anos</div>
+      <h1>Da marca à fachada. <em>Tudo em um só lugar.</em></h1>
+      <p class="lead">Criamos a logomarca, projetamos o ambiente e produzimos e instalamos fachadas, sinalização, vitrines, windbanners e cardápios.</p>
+      <div class="acoes">
+        <a class="btn btn-p" href="#orcamento">Solicitar orçamento</a>
+        <a class="btn btn-s" href="#portfolio">Ver trabalhos</a>
+      </div>
+    </div>
+    <div class="foto" role="img" aria-label="Fachada de loja com letreiro luminoso e vitrine adesivada" style="background-image:url('imagens/hero-fachada.jpg')"><span><small>Fachada e vitrine</small>Imagem ilustrativa</span></div>
+  </div>
+</section>
+
+<section class="dark resumo">
+  <div class="wrap">
+    <div class="mini"><span class="mono">Experiência</span><h3>18 anos</h3><div class="chips"><span class="chip t">Projeto</span><span class="chip">Produção</span><span class="chip">Instalação</span></div></div>
+    <div class="mini"><span class="mono">Criação</span><h3>Marca e ambiente</h3><div class="chips"><span class="chip t">Logomarca</span><span class="chip">Ambientação</span></div></div>
+    <div class="mini"><span class="mono">Produção</span><h3>Do pequeno ao grande</h3><div class="chips"><span class="chip t">Fachadas</span><span class="chip">Vitrines</span><span class="chip">Banners</span></div></div>
+    <div class="mini"><span class="mono">Atendimento</span><h3>Orçamento rápido</h3><div class="chips"><span class="chip t">WhatsApp</span><span class="chip">Formulário</span></div></div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="wrap">
+    <div class="cab">
+      <div>
+        <div class="eyebrow">O que fazemos</div>
+        <h2>Soluções para a imagem do seu negócio</h2>
+      </div>
+      <a class="link" href="#orcamento">Pedir orçamento <span>→</span></a>
+    </div>
+    <div class="grid3">
+      <a class="card" href="#"><div class="img" style="background-image:url('imagens/CriacoesReais/LogoFachada_IgrejaBatista.jpeg')"></div><div class="corpo"><h3>Fachadas e letreiros</h3><p>Letra-caixa, ACM, luminosos e neon LED. Projeto, produção e instalação.</p><span class="link">Ver detalhes <span>→</span></span></div></a>
+      <a class="card" href="#"><div class="img" style="background-image:url('imagens/servico-vitrine.jpg')"></div><div class="corpo"><h3>Adesivação de vitrines</h3><p>Promoções, identidade e privacidade com adesivos de alta durabilidade.</p><span class="link">Ver detalhes <span>→</span></span></div></a>
+      <a class="card" href="#"><div class="img" style="background-image:url('imagens/servico-acrilico.jpg')"></div><div class="corpo"><h3>Acrílicos</h3><p>Placas, displays, totens e letreiros em acrílico sob medida.</p><span class="link">Ver detalhes <span>→</span></span></div></a>
+      <a class="card" href="#"><div class="img" style="background-image:url('imagens/servico-windbanner.jpg')"></div><div class="corpo"><h3>Windbanners e bandeiras</h3><p>Modelos pena, gota e bandeira, com base e haste. Pronta entrega de modelos padrão.</p><span class="link">Ver detalhes <span>→</span></span></div></a>
+      <a class="card" href="#"><div class="img" style="background-image:url('imagens/servico-lonas.jpg')"></div><div class="corpo"><h3>Lonas, banners e adesivos</h3><p>Impressão digital em grandes e pequenos formatos, em vários materiais.</p><span class="link">Ver detalhes <span>→</span></span></div></a>
+      <a class="card" href="#"><div class="img" style="background-image:url('imagens/CriacoesReais/AmbientacaoeSinalizacao_DeutecNovus.jpeg')"></div><div class="corpo"><span class="tag">Sinalização</span><h3>Sinalização de empresas</h3><p>Institucional, orientativa, de segurança e totens para escritórios, clínicas, indústrias e condomínios.</p><span class="link">Ver detalhes <span>→</span></span></div></a>
+      <a class="card" href="#"><div class="img" style="background-image:url('imagens/servico-placas-pvc.jpg')"></div><div class="corpo"><h3>Placas para imobiliárias</h3><p>Placas de venda e aluguel em PVC, resistentes a sol e chuva, com telefone e QR Code do imóvel. Kits para vários imóveis.</p><span class="link">Ver detalhes <span>→</span></span></div></a>
+      <a class="card" href="#"><div class="img" style="background-image:url('imagens/servico-adesivos.jpg')"></div><div class="corpo"><h3>Adesivos e etiquetas</h3><p>Adesivos recortados, etiquetas e rótulos em várias formas e materiais, para produto, embalagem e delivery.</p><span class="link">Ver detalhes <span>→</span></span></div></a>
+      <a class="card" href="#"><div class="img" style="background-image:url('imagens/servico-cartoes.jpg')"></div><div class="corpo"><h3>Cartões de visita</h3><p>Impressão com acabamento profissional e arte alinhada à identidade da sua marca.</p><span class="link">Ver detalhes <span>→</span></span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ALIMENTAÇÃO -->
+<section id="alimentacao" class="dark food">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Linha Alimentação</div>
+      <h2>Para pizzarias, açaiterias e lanchonetes venderem mais</h2>
+      <p class="lead">Cardápio, windbanner, vitrine e balcão com a mesma identidade, prontos para atrair quem passa na rua e facilitar o pedido de quem está dentro.</p>
+      <div class="lista">
+        <div class="item"><div><b>Cardápios impressos</b><small>Mesa, balcão e parede</small></div><span>Orçamento</span></div>
+        <div class="item"><div><b>Windbanners</b><small>Pena, gota e bandeira</small></div><span>Orçamento</span></div>
+        <div class="item"><div><b>Menu board</b><small>Painel de preços em lona ou ACM</small></div><span>Orçamento</span></div>
+        <div class="item"><div><b>Cardápio com QR Code</b><small>Placa de mesa e adesivo de balcão</small></div><span>Orçamento</span></div>
+        <div class="item"><div><b>Vitrine e delivery</b><small>Adesivos de promoção e combos</small></div><span>Orçamento</span></div>
+        <div class="item"><div><b>Displays de balcão</b><small>Acrílico, totens e placas</small></div><span>Orçamento</span></div>
+      </div>
+      <div class="acoes"><a class="btn btn-p" href="#orcamento">Pedir orçamento</a></div>
+    </div>
+    <div class="foto" role="img" aria-label="Pizzaria com windbanner na entrada, cardápio de parede e display de balcão" style="background-image:url('imagens/alimentacao-pizzaria.jpg')"><span><small>Linha Alimentação</small>Imagem ilustrativa</span></div>
+  </div>
+</section>
+
+<!-- IMOBILIÁRIAS -->
+<section id="imobiliarias" class="light-off imob">
+  <div class="wrap">
+    <div class="vis" role="img" aria-label="Placa de imobiliária em PVC com a palavra VENDE, marca e telefone"><div class="placa"><div class="t">SUA MARCA <em>IMÓVEIS</em></div><div class="v">VENDE</div><div class="f">(00) 00000-0000</div></div><span class="kit">Ilustração · Kit de placas</span></div>
+    <div>
+      <div class="eyebrow">Para imobiliárias e corretores</div>
+      <h2>Placas em PVC que ajudam a vender e alugar mais rápido</h2>
+      <p class="lead">Placas com a sua marca, telefone em destaque e QR Code do imóvel. Feitas para ficar na rua, sob sol e chuva, e produzidas em kits para vários imóveis.</p>
+      <div class="lista">
+        <div class="item"><div><b>Placas de venda e aluguel</b><small>PVC alveolar, com ou sem poste</small></div><span>Orçamento</span></div>
+        <div class="item"><div><b>Kits com várias placas</b><small>Padrão visual para toda a carteira</small></div><span>Orçamento</span></div>
+        <div class="item"><div><b>QR Code do imóvel</b><small>Leva direto à ficha ou ao WhatsApp</small></div><span>Orçamento</span></div>
+        <div class="item"><div><b>Faixas, banners e adesivos</b><small>Fachada, vitrine e plantão de vendas</small></div><span>Orçamento</span></div>
+      </div>
+      <div class="acoes"><a class="btn btn-p" href="#orcamento">Pedir orçamento</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARCA E AMBIENTE -->
+<section id="marca">
+  <div class="wrap">
+    <div class="cab">
+      <div>
+        <div class="eyebrow">Marca e ambiente</div>
+        <h2>Sua marca desenhada e vivida no espaço</h2>
+        <p class="lead">Começamos pela ideia central do negócio e levamos a mesma linguagem do logotipo à parede da recepção.</p>
+      </div>
+    </div>
+    <div class="duo">
+      <div class="painel" style="background-image:url('imagens/CriacoesReais/LogoCaminha_Tradicao.jpeg')">
+        <div class="linha-cond"></div>
+        <span class="tag">Criação</span>
+        <h3>Logomarca e identidade visual</h3>
+        <p>Do briefing ao manual de uso, com arquivos vetoriais e versões para cada aplicação.</p>
+        <ul><li>Logomarca</li><li>Papelaria</li><li>Manual de marca</li><li>Fachada e frota</li></ul>
+        <a class="link" href="#orcamento">Criar minha marca <span>→</span></a>
+      </div>
+      <div class="painel" style="background-image:url('imagens/CriacoesReais/Uniforme_PGR.jpeg')">
+        <div class="linha-cond"></div>
+        <span class="tag">Ambientação</span>
+        <h3>Ambientação de empresas</h3>
+        <p>Recepção, murais, painéis, quadras, cenários de evento e sinalização integrada, com projeto 3D antes de executar.</p>
+        <ul><li>Recepção</li><li>Murais</li><li>Quadras e pátios</li><li>Cenários de evento</li></ul>
+        <a class="link" href="#orcamento">Pedir um projeto <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFÓLIO -->
+<section id="portfolio">
+  <div class="wrap">
+    <div class="cab">
+      <div>
+        <div class="eyebrow">Portfólio</div>
+        <h2>Projetos entregues</h2>
+      </div>
+      <div class="filtros" role="group" aria-label="Filtrar por serviço">
+        <button class="on" data-f="todos">Todos</button><button data-f="fachada">Fachadas</button><button data-f="sinalizacao">Sinalização</button><button data-f="marca">Logomarcas</button><button data-f="ambientacao">Ambientação</button><button data-f="eventos">Eventos</button>
+      </div>
+    </div>
+    <div class="port" id="port">
+      <!-- Para trocar um projeto: mude a imagem (imagens/CriacoesReais/...), o título e o data-cat. Categorias: fachada, sinalizacao, marca, ambientacao, eventos -->
+      <div class="foto" data-cat="fachada marca" role="img" aria-label="Fachada da igreja com símbolo e letra-caixa em azul" style="background-image:url('imagens/CriacoesReais/LogoFachada_IgrejaBatista.jpeg')"><span><small>Logomarca · Fachada</small><b>1ª Igreja Batista Vista Alegre</b>Símbolo e letra-caixa na fachada</span></div>
+      <div class="foto" data-cat="sinalizacao ambientacao" role="img" aria-label="Pátio industrial com totem de estacionamento e placas de setor" style="background-image:url('imagens/CriacoesReais/AmbientacaoeSinalizacao_DeutecNovus.jpeg')"><span><small>Sinalização · Ambientação</small><b>Deutec Novus</b>Totem, setores e demarcação de pátio</span></div>
+      <div class="foto" data-cat="fachada marca" role="img" aria-label="Creche com logotipo em relevo na parede" style="background-image:url('imagens/CriacoesReais/Creche_Cantinho-da-Fernanda.jpeg')"><span><small>Logomarca · Fachada</small><b>Cantinho da Tia Fernanda</b>Logotipo em relevo e letreiro</span></div>
+      <div class="foto" data-cat="marca" role="img" aria-label="Caminhão adesivado com a logomarca Tradição Mudanças" style="background-image:url('imagens/CriacoesReais/LogoCaminha_Tradicao.jpeg')"><span><small>Logomarca · Frota</small><b>Tradição Mudanças</b>Identidade e adesivação de caminhão</span></div>
+      <div class="foto" data-cat="marca ambientacao" role="img" aria-label="Palco com logotipo luminoso em formato de estrela" style="background-image:url('imagens/CriacoesReais/NovoTalentoGospel.jpeg')"><span><small>Logomarca · Cenário</small><b>Novo Talento Gospel Vocal</b>Logotipo luminoso para palco</span></div>
+      <div class="foto" data-cat="marca ambientacao" role="img" aria-label="Quadra de vôlei com identidade aplicada em piso, painel e uniformes" style="background-image:url('imagens/CriacoesReais/Uniforme_PGR.jpeg')"><span><small>Identidade · Ambientação</small><b>Peladeiras Rose Girls</b>Uniforme, quadra e painéis</span></div>
+      <div class="foto" data-cat="eventos" role="img" aria-label="Palco de premiação com painéis de LED e cenário" style="background-image:url('imagens/CriacoesReais/BackStage_2020Today-CocaColaEUA.jpeg')"><span><small>Eventos · Backstage</small><b>Coca-Cola · 2020 Today</b>Painéis e cenário de premiação</span></div>
+      <div class="foto" data-cat="eventos" role="img" aria-label="Palco de fórum corporativo com telões e identidade" style="background-image:url('imagens/CriacoesReais/Backtage_ExecutiveExcellence-CocaCola.jpeg')"><span><small>Eventos · Backstage</small><b>Coca-Cola · Execution Excellence</b>Cenário e identidade do fórum</span></div>
+      <div class="foto" data-cat="eventos" role="img" aria-label="Palco ao ar livre com painéis e bandeiras" style="background-image:url('imagens/CriacoesReais/Backtage_Petrobras.jpeg')"><span><small>Eventos · Backstage</small><b>Petrobras · Reconhecimento</b>Palco, painéis e bandeiras</span></div>
+    </div>
+    <div class="acoes"><a class="btn btn-sl" href="#">Ver todos os projetos</a></div>
+  </div>
+</section>
+
+<!-- PROCESSO -->
+<section id="processo" class="dark">
+  <div class="wrap">
+    <div class="cab">
+      <div>
+        <div class="eyebrow">Como funciona</div>
+        <h2>Do primeiro contato à instalação</h2>
+      </div>
+    </div>
+    <div class="passos">
+      <div class="passo"><h3>Briefing</h3><p>Conversamos sobre o negócio, o espaço e o que você quer comunicar.</p></div>
+      <div class="passo"><h3>Projeto e orçamento</h3><p>Você recebe a proposta com layout e valores antes de aprovar.</p></div>
+      <div class="passo"><h3>Produção</h3><p>Fabricamos com materiais adequados ao uso e ao local.</p></div>
+      <div class="passo"><h3>Instalação</h3><p>Nossa equipe instala e entrega o trabalho pronto.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROVA SOCIAL -->
+<section>
+  <div class="wrap">
+    <div class="eyebrow">18 anos de clientes</div>
+    <h2>Marcas que confiam na Visão Ideal</h2>
+    <div class="logos">
+      <div>Logo cliente</div><div>Logo cliente</div><div>Logo cliente</div><div>Logo cliente</div><div>Logo cliente</div><div>Logo cliente</div>
+    </div>
+    <div class="dep">
+      <blockquote><p>“Depoimento de cliente sobre o atendimento e a qualidade da instalação.”</p><cite><b>Nome do cliente</b>Empresa, cidade</cite></blockquote>
+      <blockquote><p>“Depoimento de cliente sobre prazo e acabamento do trabalho.”</p><cite><b>Nome do cliente</b>Empresa, cidade</cite></blockquote>
+      <blockquote><p>“Depoimento de cliente sobre a criação da marca e do ambiente.”</p><cite><b>Nome do cliente</b>Empresa, cidade</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <div><span class="mono">Orçamento sem compromisso</span><h2>Conte o que você precisa e receba a proposta.</h2></div>
+    <a class="btn" href="#orcamento">Solicitar orçamento</a>
+  </div>
+</section>
+
+<!-- ORÇAMENTO -->
+<section id="orcamento" class="dark orc">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Contato</div>
+      <h2>Conte o que você precisa</h2>
+      <p class="lead">Responda em poucos campos. Se tiver foto do local ou da arte, anexe: ajuda a acertar o orçamento de primeira.</p>
+      <div class="contatos">
+        <div><b>Rio de Janeiro</b><a href="https://wa.me/5521997836113?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento">(21) 99783-6113</a> · WhatsApp</div>
+        <div><b>Minas Gerais</b>(32) 8404-0133</div>
+        <div><b>E-mail</b>contato@seudominio.com.br</div>
+        <div><b>Endereço</b>Rua, número, bairro, cidade</div>
+        <div><b>Horário</b>Segunda a sexta, 8h às 18h</div>
+      </div>
+    </div>
+    <div class="fcard">
+      <div class="fhead"><svg class="vismark" viewBox="-4 -6 254.1 112" role="img" aria-label="VIP"><use href="#vis-mark"/></svg><div><span class="mono">Pedido de orçamento</span><h3>Solicitar orçamento</h3></div><span class="pill">WhatsApp</span></div>
+      <form id="form-orc" novalidate>
+        <div class="campo"><label for="nome">Nome</label><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg><input id="nome" name="nome" placeholder="Seu nome" required></div></div>
+        <div class="campo"><label for="zap">WhatsApp</label><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><input id="zap" name="zap" placeholder="(00) 00000-0000" inputmode="tel" required></div></div>
+        <div class="campo"><label for="servico">Serviço</label>
+          <select id="servico" name="servico">
+            <option>Fachada ou letreiro</option><option>Adesivação de vitrine</option><option>Acrílicos</option><option>Windbanner</option><option>Cardápio</option><option>Lonas, banners e adesivos</option><option>Placas para imobiliárias (PVC)</option><option>Adesivos e etiquetas</option><option>Cartões de visita</option><option>Sinalização</option><option>Ambientação</option><option>Logomarca e identidade visual</option><option>Pacote completo</option>
+          </select></div>
+        <div class="campo"><label for="local">Cidade e bairro</label><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><input id="local" name="local" placeholder="Bairro e cidade"></div></div>
+        <div class="campo"><label for="medidas">Medidas aproximadas</label><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 17 17 3l4 4L7 21z"/><path d="M8 12l2 2M11 9l2 2M14 6l2 2"/></svg><input id="medidas" name="medidas" placeholder="Ex.: 3 m x 1 m"></div></div>
+        <div class="campo"><label for="arquivo">Foto ou arte</label><input id="arquivo" name="arquivo" type="file"></div>
+        <div class="campo full"><label for="detalhes">Detalhes</label><textarea id="detalhes" name="detalhes" placeholder="Conte o que você imagina, prazos e onde será instalado"></textarea></div>
+        <p class="ajuda">Seus dados são usados só para responder ao pedido.</p>
+        <label class="check" for="aceite"><input id="aceite" type="checkbox" checked> Pode me responder pelo WhatsApp</label>
+        <button class="btn btn-p btn-w" type="submit">Enviar pedido de orçamento</button>
+        <div class="ou">OU</div>
+        <a class="btn btn-s btn-w" href="https://wa.me/5521997836113?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento">Falar direto no WhatsApp</a>
+        <p class="ok" id="ok" hidden>Pedido enviado. Retornamos pelo WhatsApp em breve. (Exemplo de tela)</p>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logo" style="color:#fff"><svg class="vismark" viewBox="-4 -6 254.1 112" role="img" aria-label="VIP"><use href="#vis-mark"/></svg><span>Visão Ideal<small>Produções</small></span></div>
+      <p style="margin-top:14px">18 anos de comunicação visual, ambientação e sinalização.</p>
+    </div>
+    <div>
+      <a href="#servicos">Serviços</a> · <a href="#portfolio">Portfólio</a> · <a href="#processo">Como funciona</a> · <a href="#">Política de Privacidade</a>
+      <p style="margin-top:14px">© 2026 Visão Ideal Produções. CNPJ 00.000.000/0001-00</p>
+    </div>
+  </div>
+</footer>
+
+<a class="zap" href="https://wa.me/5521997836113?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento">Falar no WhatsApp</a>
+
+<script>
+  document.querySelectorAll('.filtros button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.filtros button').forEach(function (x) { x.classList.remove('on'); });
+      b.classList.add('on');
+      var f = b.dataset.f, port = document.getElementById('port');
+      port.classList.toggle('filtrado', f !== 'todos');
+      port.querySelectorAll('.foto').forEach(function (x) { x.hidden = f !== 'todos' && x.dataset.cat.split(' ').indexOf(f) < 0; });
+    });
+  });
+  document.getElementById('form-orc').addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('ok').hidden = false;
+  });
+</script>

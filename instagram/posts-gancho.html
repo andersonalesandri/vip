@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Posts gancho</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Geist+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--preto:#0A0A0B;--acc:#FF6363;--off:#F6F6F7;--borda:#E4E4E7}
+*{box-sizing:border-box;margin:0}
+body{font-family:Inter,system-ui,sans-serif;color:var(--preto)}
+.p{width:1080px;height:1350px;background:var(--off);position:relative;overflow:hidden;padding:90px 80px;display:none}
+.p:target{display:block}
+body:not(:has(:target)) #p1{display:block}
+.mono{font-family:"Geist Mono",monospace;font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:#C93030}
+.mono:before{content:"";display:inline-block;width:48px;height:3px;background:var(--acc);vertical-align:middle;margin-right:16px}
+h1{font-size:112px;font-weight:800;letter-spacing:-.03em;line-height:1;margin-top:32px}
+h1 em{font-style:normal;color:#E04848}
+.tarja{display:inline-block;background:var(--preto);color:#fff;font-size:44px;font-weight:600;padding:22px 40px;margin-top:44px;border-radius:8px}
+.tarja b{color:var(--acc)}
+.foto{position:absolute;left:80px;right:80px;top:640px;height:500px;border-radius:28px;background-size:cover;background-position:center;border:1px solid var(--borda)}
+.chips{position:absolute;left:80px;top:1010px}
+.chip{display:inline-block;background:var(--preto);color:#fff;padding:16px 30px;border-radius:999px;font-size:30px;font-weight:600;margin-right:12px}
+.foot{position:absolute;left:80px;right:80px;bottom:50px;display:flex;justify-content:space-between;align-items:center;font-size:32px;font-weight:700}
+.foot span:last-child{background:var(--acc);padding:16px 34px;border-radius:999px}
+.wave{position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;background:var(--acc);opacity:.9}
+.wave:after{content:"";position:absolute;inset:50px;border-radius:50%;border:10px solid var(--preto);opacity:.9}
+.card3{position:absolute;width:560px;height:320px;border-radius:18px;left:420px;top:760px;box-shadow:0 30px 60px rgba(0,0,0,.18)}
+.cartao{background:var(--preto);color:#fff;padding:36px 40px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.cartao .lg{font-weight:800;font-size:44px;letter-spacing:-.02em}.cartao .lg i{font-style:normal;color:var(--acc)}
+.cartao small{font-size:22px;color:#CECECE;line-height:1.5;display:block}.cartao:before{content:"";position:absolute;right:0;top:0;bottom:0;width:150px;background:var(--acc)}
+
+#p5{background:#0A0A0B;color:#fff}
+#p5 .mono{color:var(--acc)}
+#p5 h1{font-size:96px;text-align:center;margin-top:20px}#p5 h1 em{color:var(--acc)}
+.sub5{text-align:center;font-size:40px;font-weight:300;margin-top:6px}
+.ben{position:absolute;left:70px;width:200px;text-align:center;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:#CECECE;font-weight:500}
+.ben i{display:grid;place-items:center;width:100px;height:100px;border-radius:50%;border:3px solid var(--acc);margin:0 auto 14px;font-style:normal;font-size:52px;color:var(--acc);background:#151517}
+.placa{position:absolute;background:#fff;border-radius:6px;overflow:hidden;border:6px solid #fff;box-shadow:0 30px 70px rgba(0,0,0,.6)}
+.placa .top{background:#151517;color:#fff;font-weight:800}
+.placa .vende{background:var(--acc);color:#fff;font-weight:800;letter-spacing:-.02em;text-align:center}
+.placa .tel{background:#0A0A0B;color:#fff;font-weight:700}
+.poste{position:absolute;width:26px;background:#d8d8dc;border-radius:3px}
+.cta5{position:absolute;left:80px;right:80px;bottom:130px;text-align:center;font-size:40px;z-index:2;font-weight:600}
+.cta5 span{background:#0A0A0B;display:inline-block;border:2px solid var(--acc);border-radius:20px;padding:20px 48px}
+</style></head><body>
+
+<section class="p" id="p1"><div class="wave"></div>
+ <div class="mono">Adesivos</div>
+ <h1>Precisando de<br><em>adesivos?</em></h1>
+ <div class="tarja">Vem pra <b>VIP</b>!</div>
+ <div class="foto" style="background-image:url('../imagens/servico-vitrine.jpg')"></div>
+ <div class="chips" style="top:1070px"></div>
+ <div class="foot"><span>VIP · 18 anos</span><span>(21) 99783-6113</span></div>
+</section>
+
+<section class="p" id="p2"><div class="wave"></div>
+ <div class="mono">Banners</div>
+ <h1>Precisando de<br><em>banner?</em></h1>
+ <div class="tarja">Do pequeno ao <b>gigante</b>.</div>
+ <div class="foto" style="background-image:url('../imagens/servico-lonas.jpg')"></div>
+ <div class="foot"><span>VIP · 18 anos</span><span>(21) 99783-6113</span></div>
+</section>
+
+<section class="p" id="p3"><div class="wave"></div>
+ <div class="mono">Placas em PVC</div>
+ <h1>Imobiliária,<br>já tem as suas<br><em>placas?</em></h1>
+ <div class="tarja" style="margin-top:32px;font-size:40px">Placas em PVC para <b>vender e alugar</b></div>
+ <div class="foto" style="top:700px;height:440px;background-image:url('../imagens/servico-sinalizacao.jpg')"></div>
+ <div class="foot"><span>VIP · 18 anos</span><span>(21) 99783-6113</span></div>
+</section>
+
+<section class="p" id="p4"><div class="wave"></div>
+ <div class="mono">Cartão de visitas</div>
+ <h1>Precisou de<br>cartão de<br><em>visitas?</em></h1>
+ <div class="tarja">Chama no <b>WhatsApp</b>!</div>
+ <div class="card3" style="background:#d9d9dc;transform:rotate(-14deg);left:380px;top:720px"></div>
+ <div class="card3" style="background:#eee;transform:rotate(-7deg);left:400px;top:740px"></div>
+ <div class="card3 cartao" style="transform:rotate(0deg);left:420px;top:770px"><div class="lg">Sua<i>Logo</i></div><div><small><b style="color:#fff;font-size:26px">Fulano de Tal</b></small><small>cargo ou função</small><small>(00) 00000-0000</small></div></div>
+ <div class="foot"><span>VIP · 18 anos</span><span>(21) 99783-6113</span></div>
+</section>
+
+<section class="p" id="p5">
+ <h1>Kit 10 Placas<br><em>Imobiliárias</em></h1>
+ <div class="sub5">em PVC, prontas para vender e alugar</div>
+ <div class="ben" style="top:410px"><i>✓</i>Alta<br>durabilidade</div>
+ <div class="ben" style="top:610px"><i>☀</i>Resiste ao<br>sol e chuva</div>
+ <div class="ben" style="top:800px"><i>▤</i>Impressão<br>nítida</div>
+ <div class="poste" style="left:420px;top:830px;height:260px"></div><div class="poste" style="left:900px;top:830px;height:260px"></div>
+ <div class="placa" style="left:340px;top:400px;width:640px;height:430px;transform:skewY(-3deg)">
+  <div class="top" style="padding:26px 36px;font-size:46px">SUA MARCA <span style="color:var(--acc)">IMÓVEIS</span></div>
+  <div class="vende" style="font-size:150px;line-height:1.1;padding:20px 0">VENDE</div>
+  <div class="tel" style="font-size:54px;padding:22px 36px">(00) 00000-0000</div>
+ </div>
+ <div class="placa" style="left:80px;top:990px;width:360px;height:130px;transform:rotate(-6deg) skewX(-8deg);border-width:4px;box-shadow:0 8px 0 #333,0 16px 0 #fff,0 24px 0 #333,0 32px 0 #fff,0 40px 50px rgba(0,0,0,.6)">
+  <div class="vende" style="font-size:64px;padding:8px 0;margin-top:20px">VENDE</div>
+ </div>
+ <div class="cta5"><span>Orçamento: <b style="color:var(--acc)">(21) 99783-6113</b></span></div>
+ <div class="foot" style="color:#9C9C9D"><span>VIP · 18 anos</span><span style="background:none;color:#9C9C9D;font-weight:500;font-size:26px;padding:0">Rio de Janeiro e Minas Gerais</span></div>
+</section>
+</body></html>
