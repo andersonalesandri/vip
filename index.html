@@ -168,10 +168,11 @@ h2 { font-size: clamp(34px, 5vw, 54px); margin-top: 14px; }
 
 /* Alimentação: fundo coral só nesta seção */
 .food { position: relative; overflow: hidden; }
-.pess { display: none; position: absolute; bottom: 0; width: calc((100vw - 1200px) * .42); max-width: 380px; height: auto; pointer-events: none; }
-.pess.esq { left: calc((100% - 1200px) / 4); transform: translateX(-50%); }
-.pess.dir { right: calc((100% - 1200px) / 4); transform: translateX(50%); width: calc((100vw - 1200px) * .3); max-width: 270px; }
-@media (min-width: 1560px) { .pess { display: block; } }
+.pess { display: none; position: absolute; bottom: 0; z-index: 0; height: auto; pointer-events: none; }
+.pess.esq { left: 0; width: clamp(280px, 22vw, 440px); }
+.pess.dir { right: 0; width: clamp(220px, 19vw, 370px); }
+.food .wrap { position: relative; z-index: 1; }
+@media (min-width: 1400px) { .pess { display: block; } }
 
 .food .wrap { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto; column-gap: 56px; row-gap: 0; align-items: start; }
 .food .wrap > div:first-child { display: contents; }
@@ -428,12 +429,12 @@ footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wr
       <a class="link" href="#orcamento">Pedir orçamento <span>→</span></a>
     </div>
     <div class="grid3">
-      <a class="card" href="#"><div class="img" style="background-image:url('imagens/CriacoesReais/LogoFachada_IgrejaBatista.jpeg')"></div><div class="corpo"><h3>Fachadas e letreiros</h3><p>Letra-caixa, ACM, luminosos e neon LED. Projeto, produção e instalação.</p><span class="link">Ver detalhes <span>→</span></span></div></a>
+      <a class="card" href="#"><div class="img" style="background-image:url('imagens/servico-fachada-ia.jpg')"></div><div class="corpo"><h3>Fachadas e letreiros</h3><p>Letra-caixa, ACM, luminosos e neon LED. Projeto, produção e instalação.</p><span class="link">Ver detalhes <span>→</span></span></div></a>
       <a class="card" href="#"><div class="img" style="background-image:url('imagens/servico-vitrine.jpg')"></div><div class="corpo"><h3>Adesivação de vitrines</h3><p>Promoções, identidade e privacidade com adesivos de alta durabilidade.</p><span class="link">Ver detalhes <span>→</span></span></div></a>
       <a class="card" href="#"><div class="img" style="background-image:url('imagens/servico-acrilico.jpg')"></div><div class="corpo"><h3>Acrílicos</h3><p>Placas, displays, totens e letreiros em acrílico sob medida.</p><span class="link">Ver detalhes <span>→</span></span></div></a>
       <a class="card" href="#"><div class="img" style="background-image:url('imagens/servico-windbanner.jpg')"></div><div class="corpo"><h3>Windbanners e bandeiras</h3><p>Modelos pena, gota e bandeira, com base e haste. Pronta entrega de modelos padrão.</p><span class="link">Ver detalhes <span>→</span></span></div></a>
       <a class="card" href="#"><div class="img" style="background-image:url('imagens/servico-lonas.jpg')"></div><div class="corpo"><h3>Lonas, banners e adesivos</h3><p>Impressão digital em grandes e pequenos formatos, em vários materiais.</p><span class="link">Ver detalhes <span>→</span></span></div></a>
-      <a class="card" href="#"><div class="img" style="background-image:url('imagens/CriacoesReais/AmbientacaoeSinalizacao_DeutecNovus.jpeg')"></div><div class="corpo"><span class="tag">Sinalização</span><h3>Sinalização de empresas</h3><p>Institucional, orientativa, de segurança e totens para escritórios, clínicas, indústrias e condomínios.</p><span class="link">Ver detalhes <span>→</span></span></div></a>
+      <a class="card" href="#"><div class="img" style="background-image:url('imagens/servico-sinalizacao-ia.jpg')"></div><div class="corpo"><span class="tag">Sinalização</span><h3>Sinalização de empresas</h3><p>Institucional, orientativa, de segurança e totens para escritórios, clínicas, indústrias e condomínios.</p><span class="link">Ver detalhes <span>→</span></span></div></a>
     </div>
   </div>
 </section>
