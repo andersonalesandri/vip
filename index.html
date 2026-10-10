@@ -121,10 +121,10 @@ h2 { font-size: clamp(34px, 5vw, 54px); margin-top: 14px; }
 
 /* Peças laterais da seção Serviços (só em telas largas) */
 #servicos { position: relative; overflow: hidden; }
-.pec { display: none; position: absolute; bottom: 96px; height: 300px; pointer-events: none; }
+.pec { display: none; position: absolute; top: 50%; pointer-events: none; }
 .pec svg { display: block; height: 100%; width: auto; overflow: visible; }
-.pec.esq { left: clamp(16px, 3vw, 70px); }
-.pec.dir { right: clamp(16px, 3vw, 70px); height: 360px; }
+.pec.esq { left: calc((100% - 1200px) / 4); height: clamp(300px, calc(.75 * (100vw - 1200px)), 640px); transform: translate(-50%, -50%); }
+.pec.dir { right: calc((100% - 1200px) / 4); height: clamp(300px, calc(.72 * (100vw - 1200px)), 620px); transform: translate(50%, -50%); }
 .pec text { font-family: var(--fonte); font-weight: 700; }
 @media (min-width: 1560px) { .pec { display: block; } }
 
@@ -167,6 +167,12 @@ h2 { font-size: clamp(34px, 5vw, 54px); margin-top: 14px; }
 @media (max-width: 900px) { .food .wrap { grid-template-columns: 1fr; } }
 
 /* Alimentação: fundo coral só nesta seção */
+.food { position: relative; overflow: hidden; }
+.pess { display: none; position: absolute; bottom: 0; width: calc((100vw - 1200px) * .42); max-width: 380px; height: auto; pointer-events: none; }
+.pess.esq { left: calc((100% - 1200px) / 4); transform: translateX(-50%); }
+.pess.dir { right: calc((100% - 1200px) / 4); transform: translateX(50%); width: calc((100vw - 1200px) * .3); max-width: 270px; }
+@media (min-width: 1560px) { .pess { display: block; } }
+
 .food .wrap { grid-template-columns: 1fr 1fr; grid-template-rows: auto auto auto; column-gap: 56px; row-gap: 0; align-items: start; }
 .food .wrap > div:first-child { display: contents; }
 .food .cab-f { grid-column: 1; grid-row: 1; }
@@ -276,9 +282,12 @@ textarea { min-height: 96px; resize: vertical; }
 form .btn { grid-column: 1 / -1; }
 @media (max-width: 900px) { .orc .wrap { grid-template-columns: 1fr; } form { grid-template-columns: 1fr; } }
 
-footer { background: var(--bg); color: var(--fg-suave); border-top: 1px solid var(--line-d); padding-block: 40px; font-size: 16px; }
+footer { background: var(--accent); color: var(--ink); border-top: 0; padding-block: 40px; font-size: 16px; }
+footer a:hover { opacity: .65; }
+footer .logo { color: var(--ink) !important; }
+footer .vismark { color: var(--ink); }
+footer .logo small { color: rgba(7,8,10,.7); }
 footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-footer a:hover { color: var(--fg); }
 .zap { position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 30; background: var(--accent); color: #07080a; border-radius: var(--r-btn); padding: 14px 20px; font-weight: 700; font-size: 16px; box-shadow: 0 10px 30px rgba(0,0,0,.35); transition: opacity .2s; }
 .zap:hover { opacity: .65; }
 .nota { background: var(--accent); color: #fff; overflow: hidden; white-space: nowrap; padding: 0; font-weight: 700; font-size: 15px; letter-spacing: .3px; }
@@ -431,6 +440,8 @@ footer a:hover { color: var(--fg); }
 
 <!-- ALIMENTAÇÃO -->
 <section id="alimentacao" class="dark food">
+  <img class="pess esq" src="imagens/pessoas-criancas-recorte.png" alt="Duas crianças sorrindo tomando sorvete de açaí" loading="lazy">
+  <img class="pess dir" src="imagens/pessoas-casal-recorte.png" alt="Casal em pé olhando o cardápio" loading="lazy">
   <div class="wrap">
     <div>
       <div class="cab-f"><div class="eyebrow">Linha Alimentação</div>
@@ -446,11 +457,11 @@ footer a:hover { color: var(--fg); }
       </div>
       <div class="acoes"><a class="btn btn-p" href="#orcamento">Pedir orçamento</a></div>
     </div>
-    <div class="mock"><svg viewBox="0 0 640 700" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Cena de cardápio em PVC: casal em pé olhando o cardápio à direita, duas crianças tomando sorvete à esquerda e cardápios empilhados à frente">
+    <div class="mock"><svg viewBox="0 0 640 700" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Mockup de cardápio em PVC: uma peça em pé com o hambúrguer na frente e quatro cardápios empilhados atrás">
 <defs><filter id="bl" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="7"/></filter>
 <linearGradient id="mesa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1f2f4"/><stop offset="1" stop-color="#fff"/></linearGradient></defs>
 <rect x="-400" y="-100" width="1500" height="1000" fill="url(#mesa)"/>
-<g transform="translate(62,640) scale(1.0)"><ellipse cx="0" cy="2" rx="62" ry="9" fill="#000" opacity=".16"/><rect x="-24" y="-130" width="22" height="118" rx="9" fill="#f1c9a5"/><rect x="2" y="-130" width="22" height="118" rx="9" fill="#f1c9a5"/><path d="M-30 -12 Q-30 -26 -12 -26 L-1 -26 L-1 0 L-26 0 Q-30 0 -30 -12Z" fill="#2a2a2d"/><path d="M30 -12 Q30 -26 12 -26 L1 -26 L1 0 L26 0 Q30 0 30 -12Z" fill="#2a2a2d"/><path d="M-34 -250 Q-38 -190 -46 -120 L46 -120 Q38 -190 34 -250Z" fill="#FF6363"/><rect x="-8" y="-268" width="16" height="22" rx="6" fill="#f1c9a5"/><circle cx="0" cy="-296" r="34" fill="#f1c9a5"/><path d="M-36 -300 Q-34 -338 0 -336 Q34 -338 36 -300 Q20 -318 0 -318 Q-20 -318 -36 -300Z" fill="#6b3d1f"/><circle cx="-42" cy="-282" r="13" fill="#6b3d1f"/><circle cx="42" cy="-282" r="13" fill="#6b3d1f"/><circle cx="-12" cy="-296" r="3" fill="#2a1a12"/><circle cx="12" cy="-296" r="3" fill="#2a1a12"/><path d="M-10 -280 Q0 -270 10 -280" stroke="#2a1a12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M30 -238 L56 -190 L44 -226" stroke="#f1c9a5" stroke-width="17" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M-30 -238 L-52 -196" stroke="#f1c9a5" stroke-width="17" fill="none" stroke-linecap="round"/><polygon points="36,-206 60,-206 48,-150" fill="#d9a35b"/><circle cx="48" cy="-218" r="19" fill="#7b2c8f"/><circle cx="48" cy="-238" r="14" fill="#f3a0b6"/></g><g transform="translate(138,646) scale(0.98)"><ellipse cx="0" cy="2" rx="62" ry="9" fill="#000" opacity=".16"/><rect x="-24" y="-130" width="22" height="118" rx="9" fill="#8d5a3b"/><rect x="2" y="-130" width="22" height="118" rx="9" fill="#8d5a3b"/><path d="M-30 -12 Q-30 -26 -12 -26 L-1 -26 L-1 0 L-26 0 Q-30 0 -30 -12Z" fill="#f4f4f4"/><path d="M30 -12 Q30 -26 12 -26 L1 -26 L1 0 L26 0 Q30 0 30 -12Z" fill="#f4f4f4"/><rect x="-32" y="-252" width="64" height="104" rx="18" fill="#4aa3c7"/><rect x="-33" y="-160" width="66" height="50" rx="10" fill="#2f3b52"/><rect x="-8" y="-268" width="16" height="22" rx="6" fill="#8d5a3b"/><circle cx="0" cy="-296" r="34" fill="#8d5a3b"/><path d="M-35 -298 Q-36 -336 0 -334 Q36 -336 35 -298 Q22 -314 0 -314 Q-22 -314 -35 -298Z" fill="#1a1210"/><circle cx="-12" cy="-296" r="3" fill="#2a1a12"/><circle cx="12" cy="-296" r="3" fill="#2a1a12"/><path d="M-10 -280 Q0 -270 10 -280" stroke="#2a1a12" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M30 -238 L56 -190 L44 -226" stroke="#8d5a3b" stroke-width="17" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M-30 -238 L-52 -196" stroke="#8d5a3b" stroke-width="17" fill="none" stroke-linecap="round"/><polygon points="36,-206 60,-206 48,-150" fill="#d9a35b"/><circle cx="48" cy="-218" r="19" fill="#f3a0b6"/><circle cx="48" cy="-238" r="14" fill="#7b2c8f"/></g><polygon points="195.0,560.0 478.4,541.0 498.4,561.0 181.0,580.0" fill="#000" opacity=".2" filter="url(#bl)"/><polygon points="211.0,552.0 255.0,550.0 265.0,561.0 220.0,565.0" fill="#e2e4e8"/><polygon points="220.0,565.0 265.0,561.0 265.0,565.0 220.0,569.0" fill="#bfc3c9"/><polygon points="356.4,535.0 400.4,533.0 410.4,544.0 365.4,548.0" fill="#e2e4e8"/><polygon points="365.4,548.0 410.4,544.0 410.4,548.0 365.4,552.0" fill="#bfc3c9"/><image href="imagens/cardapio-lenas-frente.png" width="526" height="752" transform="matrix(0.4057 -0.0209 0 0.4183 205 245.5)"/><polygon points="418.4,234.5 422.4,232.5 422.4,547.0 418.4,549.0" fill="#cdd0d6"/><polygon points="205.0,245.5 209.0,243.5 422.4,232.5 418.4,234.5" fill="#e4e6ea"/><polygon points="205.0,245.5 418.4,234.5 418.4,549.0 205.0,560.0" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width=".8"/><g transform="translate(520,640) scale(0.82)"><ellipse cx="0" cy="2" rx="60" ry="9" fill="#000" opacity=".16"/><rect x="-14" y="-220" width="26" height="205" rx="11" fill="#e0a07a"/><rect x="2" y="-220" width="26" height="205" rx="11" fill="#e0a07a"/><path d="M-40 -14 Q-40 -26 -22 -26 L6 -26 L6 0 L-34 0 Q-40 0 -40 -14Z" fill="#2a2a2d"/><path d="M-14 -14 Q-14 -26 4 -26 L32 -26 L32 0 L-8 0 Q-14 0 -14 -14Z" fill="#2a2a2d" opacity=".9"/><path d="M-36 -405 Q-40 -300 -52 -215 L52 -215 Q40 -300 36 -405Z" fill="#FF6363"/><rect x="-9" y="-440" width="20" height="34" rx="8" fill="#e0a07a"/><ellipse cx="-4" cy="-470" rx="32" ry="36" fill="#e0a07a"/><path d="M-30 -478 Q-34 -516 2 -514 Q40 -510 36 -470 L40 -380 Q22 -372 14 -400 Q10 -440 -8 -462 Q-24 -468 -30 -478Z" fill="#2b1b12"/><circle cx="-24" cy="-472" r="2.6" fill="#2a1a12"/><path d="M-34 -454 Q-26 -448 -18 -454" stroke="#2a1a12" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M0 -390 L-34 -320 L-60 -372" stroke="#e0a07a" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M0 -390 L-18 -352" stroke="#FF6363" stroke-width="26" fill="none" stroke-linecap="round"/></g><g transform="translate(578,640) scale(0.861)"><ellipse cx="0" cy="2" rx="60" ry="9" fill="#000" opacity=".16"/><rect x="-22" y="-235" width="30" height="222" rx="10" fill="#3b4a63"/><rect x="-2" y="-235" width="30" height="222" rx="10" fill="#3b4a63" opacity=".88"/><path d="M-40 -14 Q-40 -26 -22 -26 L6 -26 L6 0 L-34 0 Q-40 0 -40 -14Z" fill="#f4f4f4"/><path d="M-14 -14 Q-14 -26 4 -26 L32 -26 L32 0 L-8 0 Q-14 0 -14 -14Z" fill="#f4f4f4" opacity=".9"/><rect x="-36" y="-410" width="72" height="190" rx="22" fill="#151517"/><rect x="-37" y="-250" width="74" height="26" fill="#3b4a63"/><rect x="-9" y="-440" width="20" height="34" rx="8" fill="#8d5a3b"/><ellipse cx="-4" cy="-470" rx="32" ry="36" fill="#8d5a3b"/><path d="M-32 -484 Q-28 -514 4 -512 Q36 -508 30 -466 Q22 -482 0 -490 Q-20 -494 -32 -484Z" fill="#1a1210"/><circle cx="-24" cy="-472" r="2.6" fill="#2a1a12"/><path d="M-34 -454 Q-26 -448 -18 -454" stroke="#2a1a12" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M0 -390 L-34 -320 L-60 -372" stroke="#8d5a3b" stroke-width="20" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M0 -390 L-18 -352" stroke="#151517" stroke-width="26" fill="none" stroke-linecap="round"/></g><polygon points="224.0,606.0 334.6,570.5 436.9,623.0 326.4,658.4" fill="#000" opacity=".14" filter="url(#bl)"/><polygon points="215.0,597.0 325.6,561.5 427.9,614.0 317.4,649.4" fill="#c4c8ce"/><polygon points="215.0,596.0 325.6,560.5 427.9,613.0 317.4,648.4" fill="#dcdfe3"/><image href="imagens/cardapio-lenas-frente.png" width="526" height="752" transform="matrix(0.2102 -0.0674 0.1362 0.0697 215.0 595.0)"/><polygon points="215.0,595.0 325.6,559.5 427.9,612.0 317.4,647.4" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width=".8"/><polygon points="228.0,603.0 343.9,570.6 433.4,626.9 317.4,659.3" fill="#000" opacity=".14" filter="url(#bl)"/><polygon points="219.0,594.0 334.9,561.6 424.4,617.9 308.4,650.3" fill="#c4c8ce"/><polygon points="219.0,593.0 334.9,560.6 424.4,616.9 308.4,649.3" fill="#dcdfe3"/><image href="imagens/cardapio-lenas-verso.png" width="526" height="752" transform="matrix(0.2204 -0.0617 0.1189 0.0749 219.0 592.0)"/><polygon points="219.0,592.0 334.9,559.6 424.4,615.9 308.4,648.3" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width=".8"/><polygon points="222.0,600.0 334.7,565.6 432.3,619.6 319.6,653.9" fill="#000" opacity=".14" filter="url(#bl)"/><polygon points="213.0,591.0 325.7,556.6 423.3,610.6 310.6,644.9" fill="#c4c8ce"/><polygon points="213.0,590.0 325.7,555.6 423.3,609.6 310.6,643.9" fill="#dcdfe3"/><image href="imagens/cardapio-lenas-frente.png" width="526" height="752" transform="matrix(0.2142 -0.0653 0.1298 0.0717 213.0 589.0)"/><polygon points="213.0,589.0 325.7,554.6 423.3,608.6 310.6,642.9" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width=".8"/><polygon points="226.0,597.0 341.0,564.0 432.9,619.6 317.9,652.6" fill="#000" opacity=".14" filter="url(#bl)"/><polygon points="217.0,588.0 332.0,555.0 423.9,610.6 308.9,643.6" fill="#c4c8ce"/><polygon points="217.0,587.0 332.0,554.0 423.9,609.6 308.9,642.6" fill="#dcdfe3"/><image href="imagens/cardapio-lenas-verso.png" width="526" height="752" transform="matrix(0.2186 -0.0628 0.1222 0.0740 217.0 586.0)"/><polygon points="217.0,586.0 332.0,553.0 423.9,608.6 308.9,641.6" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width=".8"/></svg><span class="leg"><small>Linha Alimentação · Cardápio em PVC</small>Lena's Lanches</span></div>
+<polygon points="34.0,216.0 232.1,152.4 415.5,246.4 217.4,309.9" fill="#000" opacity=".14" filter="url(#bl)"/><polygon points="25.0,207.0 223.1,143.4 406.5,237.4 208.4,300.9" fill="#c4c8ce"/><polygon points="25.0,206.0 223.1,142.4 406.5,236.4 208.4,299.9" fill="#dcdfe3"/><image href="imagens/cardapio-lenas-frente.png" width="526" height="752" transform="matrix(0.3766 -0.1208 0.2439 0.1249 25.0 205.0)"/><polygon points="25.0,205.0 223.1,141.4 406.5,235.4 208.4,298.9" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width=".8"/><polygon points="40.0,213.0 247.7,154.9 407.9,255.8 200.2,313.9" fill="#000" opacity=".14" filter="url(#bl)"/><polygon points="31.0,204.0 238.7,145.9 398.9,246.8 191.2,304.9" fill="#c4c8ce"/><polygon points="31.0,203.0 238.7,144.9 398.9,245.8 191.2,303.9" fill="#dcdfe3"/><image href="imagens/cardapio-lenas-verso.png" width="526" height="752" transform="matrix(0.3949 -0.1105 0.2131 0.1342 31.0 202.0)"/><polygon points="31.0,202.0 238.7,143.9 398.9,244.8 191.2,302.9" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width=".8"/><polygon points="31.0,210.0 232.8,148.4 407.7,245.1 205.9,306.6" fill="#000" opacity=".14" filter="url(#bl)"/><polygon points="22.0,201.0 223.8,139.4 398.7,236.1 196.9,297.6" fill="#c4c8ce"/><polygon points="22.0,200.0 223.8,138.4 398.7,235.1 196.9,296.6" fill="#dcdfe3"/><image href="imagens/cardapio-lenas-frente.png" width="526" height="752" transform="matrix(0.3837 -0.1170 0.2325 0.1285 22.0 199.0)"/><polygon points="22.0,199.0 223.8,137.4 398.7,234.1 196.9,295.6" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width=".8"/><polygon points="37.0,207.0 243.0,147.8 407.7,247.5 201.7,306.6" fill="#000" opacity=".14" filter="url(#bl)"/><polygon points="28.0,198.0 234.0,138.8 398.7,238.5 192.7,297.6" fill="#c4c8ce"/><polygon points="28.0,197.0 234.0,137.8 398.7,237.5 192.7,296.6" fill="#dcdfe3"/><image href="imagens/cardapio-lenas-verso.png" width="526" height="752" transform="matrix(0.3916 -0.1125 0.2190 0.1325 28.0 196.0)"/><polygon points="28.0,196.0 234.0,136.8 398.7,236.5 192.7,295.6" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width=".8"/><polygon points="260.0,640.0 630.7,616.5 650.7,636.5 246.0,660.0" fill="#000" opacity=".2" filter="url(#bl)"/><polygon points="276.0,632.0 320.0,630.0 330.0,641.0 285.0,645.0" fill="#e2e4e8"/><polygon points="285.0,645.0 330.0,641.0 330.0,645.0 285.0,649.0" fill="#bfc3c9"/><polygon points="508.7,610.5 552.7,608.5 562.7,619.5 517.7,623.5" fill="#e2e4e8"/><polygon points="517.7,623.5 562.7,619.5 562.7,623.5 517.7,627.5" fill="#bfc3c9"/><image href="imagens/cardapio-lenas-frente.png" width="526" height="752" transform="matrix(0.5717 -0.0295 0 0.5894 270 196.8)"/><polygon points="570.7,181.3 574.7,179.3 574.7,622.5 570.7,624.5" fill="#cdd0d6"/><polygon points="270.0,196.8 274.0,194.8 574.7,179.3 570.7,181.3" fill="#e4e6ea"/><polygon points="270.0,196.8 570.7,181.3 570.7,624.5 270.0,640.0" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width=".8"/></svg><span class="leg"><small>Linha Alimentação · Cardápio em PVC</small>Lena's Lanches</span></div>
   </div>
 </section>
 
@@ -611,7 +622,7 @@ footer a:hover { color: var(--fg); }
         <button class="btn btn-p btn-w" type="submit">Enviar pedido de orçamento</button>
         <div class="ou">OU</div>
         <a class="btn btn-s btn-w" href="https://wa.me/5521997836113?text=Ol%C3%A1%2C%20quero%20um%20or%C3%A7amento">Falar direto no WhatsApp</a>
-        <p class="ok" id="ok" hidden>Pedido enviado. Retornamos pelo WhatsApp em breve. (Exemplo de tela)</p>
+        <p class="ok" id="ok" hidden></p>
       </form>
     </div>
   </div>
@@ -646,6 +657,22 @@ footer a:hover { color: var(--fg); }
   });
   document.getElementById('form-orc').addEventListener('submit', function (e) {
     e.preventDefault();
-    document.getElementById('ok').hidden = false;
+    var form = e.target, ok = document.getElementById('ok'), btn = form.querySelector('button[type=submit]');
+    var d = new FormData(form);
+    d.delete('arquivo');
+    d.append('_subject', 'Novo pedido de orçamento - site Visão Ideal');
+    d.append('_template', 'table');
+    d.append('_captcha', 'false');
+    d.append('Responder pelo WhatsApp', document.getElementById('aceite').checked ? 'Sim' : 'Não');
+    if (document.getElementById('arquivo').files.length) d.append('Arquivo (combinar envio pelo WhatsApp)', document.getElementById('arquivo').files[0].name);
+    btn.disabled = true; ok.hidden = true; ok.style.color = '';
+    fetch('https://formsubmit.co/ajax/andersonalessandri2013@gmail.com', { method: 'POST', headers: { 'Accept': 'application/json' }, body: d })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        if (j.success === 'true' || j.success === true) { ok.textContent = 'Pedido enviado. Retornamos pelo WhatsApp em breve.'; form.reset(); }
+        else { throw new Error('falha'); }
+      })
+      .catch(function () { ok.textContent = 'Não foi possível enviar agora. Use o botão do WhatsApp abaixo.'; ok.style.color = '#ff8a8a'; })
+      .then(function () { ok.hidden = false; btn.disabled = false; });
   });
 </script>
