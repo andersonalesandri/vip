@@ -1,6 +1,6 @@
 # Design System: Visão Ideal Produções
 
-Base: Raycast (https://getdesign.md/raycast/design-md), adaptado. Usado como referência de componentes e acabamento. O Raycast é 100% escuro; aqui o site é **branco predominante com seções pretas** e acento **magenta**. Implementação de referência: `layout-home.html`.
+Base: Raycast (https://getdesign.md/raycast/design-md), adaptado. Usado como referência de componentes e acabamento. O Raycast é 100% escuro; aqui o site é **branco predominante com seções pretas** e acento **magenta**. Implementação de referência: `index.html`.
 
 ## Princípios
 - Magenta é pontuação: CTA, selo "18 anos", linha condutora, hover. Nunca pintar seções inteiras.
